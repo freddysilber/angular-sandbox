@@ -17,7 +17,7 @@ export class ServersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('ng On Init')
+    console.log('ng On Init is a hook!')
   }
 
   onCreateServer = () => {

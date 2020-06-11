@@ -4,6 +4,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
+			<label>Username</label>
+			<input type="text" class="form-control" [(ngModel)]="username">
+			<p>{{username}}</p>
+			<button class="btn btn-primary" [disabled]="username === ''" (click)="username = ''">Reset User</button>
+
 			<h3>Im in the app component</h3>
 			<input type="text" [(ngModel)]="name">
 			<p>{{name}}</p>
@@ -11,6 +16,4 @@
 			<app-servers></app-servers>
 		</div>
 	</div>
-	<!-- <div app-servers></div> -->
-	<!-- <div class="app-servers"></div> -->
 </div>
