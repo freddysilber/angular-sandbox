@@ -5,10 +5,15 @@ const ONLINE: string = 'online'
 @Component({
 	selector: 'app-server',
 	templateUrl: './server.component.html',
-	styleUrls: ['./server.component.css']
+	styles: [`
+		.online {
+			color: white;
+		}
+	`]
+	// styleUrls: ['./server.component.css']
 })
 export class ServerComponent {
-	serverId: number = 10
+	serverId: number = Math.random() * 10
 	serverStatus: string = OFFLINE
 
 	constructor() {
@@ -20,6 +25,7 @@ export class ServerComponent {
 	}
 
 	getColor() {
-		return this.serverStatus === ONLINE ? 'lightgreen' : 'lightpink'
+		return this.serverStatus === ONLINE ? 'green' : 'red'
+		// return this.serverStatus === ONLINE ? 'lightgreen' : 'lightpink'
 	}
 }
