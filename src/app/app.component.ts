@@ -7,6 +7,5 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
   name = 'Freddy'
-  username: String = ''
-  // username: String = this.name
+  username: string = ''
 }
