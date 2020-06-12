@@ -31,4 +31,9 @@ export class ServersComponent implements OnInit {
   onUpdateServerName = (event: any) => {
     this.serverName = (<HTMLInputElement>event.target).value
   }
+
+  handleDeleteServer = (index: number) => {
+    console.log(index)
+    this.servers.splice(index, 1)
+  }
 }

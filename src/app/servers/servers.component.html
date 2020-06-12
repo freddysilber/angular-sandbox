@@ -14,7 +14,7 @@
 <br>
 
 <div class="serversContainer">
-	<app-server *ngFor="let server of servers"></app-server>
+	<app-server *ngFor="let server of servers; let i = index" (click)="handleDeleteServer(i)"></app-server>
 	<!-- <app-server></app-server> -->
 	<!-- <app-server></app-server> -->
 </div>
