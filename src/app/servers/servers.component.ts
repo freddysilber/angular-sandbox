@@ -28,12 +28,7 @@ export class ServersComponent implements OnInit {
     this.serverCreationStatus = `Server was created! Name is ${this.serverName}`
   }
 
-  onUpdateServerName = (event: any) => {
-    this.serverName = (<HTMLInputElement>event.target).value
-  }
+  onUpdateServerName = (event: any) => this.serverName = (<HTMLInputElement>event.target).value
 
-  handleDeleteServer = (index: number) => {
-    console.log(index)
-    this.servers.splice(index, 1)
-  }
+  handleDeleteServer = (index: number) => this.servers.splice(index, 1)
 }

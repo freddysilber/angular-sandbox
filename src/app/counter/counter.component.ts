@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CounterComponent implements OnInit {
   // count = 3
   // clickerCount = 10
+  @Input() clickerCount: number = 0
 
   constructor() { }
 

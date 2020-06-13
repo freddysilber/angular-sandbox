@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./count.component.css']
 })
 export class CountComponent implements OnInit {
-  @Input() count: number = 1
+  @Input() clickerCount: number = 0
 
   constructor() { }
 

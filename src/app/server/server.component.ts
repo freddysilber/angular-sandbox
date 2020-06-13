@@ -13,6 +13,7 @@ const ONLINE: string = 'online'
 	// styleUrls: ['./server.component.css']
 })
 export class ServerComponent {
+	// PROPS!
 	serverId: number = Math.random() * 10
 	serverStatus: string = OFFLINE
 
@@ -20,12 +21,7 @@ export class ServerComponent {
 		this.serverStatus = Math.random() > 0.5 ? ONLINE : OFFLINE
 	}
 
-	getServerStatus() {
-		return this.serverStatus
-	}
+	getServerStatus = () => this.serverStatus
 
-	getColor() {
-		return this.serverStatus === ONLINE ? 'green' : 'red'
-		// return this.serverStatus === ONLINE ? 'lightgreen' : 'lightpink'
-	}
+	getColor = () => this.serverStatus === ONLINE ? 'green' : 'red'
 }

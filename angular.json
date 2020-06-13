@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "angular-sandbox"
+  "defaultProject": "angular-sandbox",
+  "cli": {
+    "analytics": false
+  }
 }
