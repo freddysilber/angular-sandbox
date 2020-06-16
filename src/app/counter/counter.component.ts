@@ -6,13 +6,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent implements OnInit {
-  // count = 3
-  // clickerCount = 10
   @Input() clickerCount: number = 0
+  count: number = 0
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleCount(event) {
+    this.count = event.count
   }
 
 }

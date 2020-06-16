@@ -9,7 +9,8 @@ import { WarningAlertComponent } from './warning-alert/warning-alert.component';
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import { ClickerComponent } from './counter/clicker/clicker.component';
 import { CountComponent } from './counter/count/count.component';
-import { CounterComponent } from './counter/counter.component'
+import { CounterComponent } from './counter/counter.component';
+import { CockpitComponent } from './cockpit/cockpit.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CounterComponent } from './counter/counter.component'
     SuccessAlertComponent,
     ClickerComponent,
     CountComponent,
-    CounterComponent
+    CounterComponent,
+    CockpitComponent
   ],
   imports: [
     BrowserModule,
