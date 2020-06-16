@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { TimeInterval } from 'rxjs';
 
 @Component({
   selector: 'app-game-control',
@@ -8,7 +9,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class GameControlComponent implements OnInit {
   @Output() intervalFired = new EventEmitter<number>()
   interval
-  lastNumber = 0
+  lastNumber: number = 0
 
   constructor() { }
 
