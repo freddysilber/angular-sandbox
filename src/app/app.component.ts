@@ -10,6 +10,8 @@ export class AppComponent {
   username: string = ''
   showSecret: boolean = false
   log = []
+  oddNumbers: number[] = []
+  evenNumbers: number[] = []
 
   onToggleDisplay() {
     this.showSecret = !this.showSecret
@@ -18,5 +20,13 @@ export class AppComponent {
 
   onWorldCreated(event) {
     console.log('You just opened up a whole other world!', event)
+  }
+
+  onIntervalFired(firedNumber: number) {
+    if (firedNumber % 2 === 0) {
+      this.evenNumbers.push(firedNumber)
+    } else {
+      this.oddNumbers.push(firedNumber)
+    }
   }
 }

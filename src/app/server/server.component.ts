@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnDestroy } from '@angular/core'
 
 const OFFLINE: string = 'offline'
 const ONLINE: string = 'online'
@@ -12,7 +12,7 @@ const ONLINE: string = 'online'
 	`]
 	// styleUrls: ['./server.component.css']
 })
-export class ServerComponent {
+export class ServerComponent implements OnDestroy {
 	// PROPS!
 	serverId: number = Math.random() * 10
 	serverStatus: string = OFFLINE
@@ -24,4 +24,8 @@ export class ServerComponent {
 	getServerStatus = () => this.serverStatus
 
 	getColor = () => this.serverStatus === ONLINE ? 'green' : 'red'
+
+	ngOnDestroy() {
+		console.log('ngOnDestroy called! something was removed from the DOM')
+	}
 }
