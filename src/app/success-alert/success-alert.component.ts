@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-success-alert',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./success-alert.component.css']
 })
 export class SuccessAlertComponent implements OnInit {
+  @ViewChild('successElement') successRef: ElementRef
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  handleSuccessClick(successElement: HTMLInputElement) {
+    console.log('Local Ref alt 2', this.successRef, this.successRef.nativeElement, this.successRef.nativeElement.value)
+    console.log(successElement, successElement.value)
   }
 
 }
