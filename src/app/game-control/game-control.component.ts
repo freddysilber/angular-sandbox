@@ -1,5 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { TimeInterval } from 'rxjs';
+import { Component, OnInit, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-game-control',
@@ -25,5 +24,9 @@ export class GameControlComponent implements OnInit {
 
   onPauseGame() {
     clearInterval(this.interval)
+  }
+
+  onClearGame() {
+    this.lastNumber = 0
   }
 }
