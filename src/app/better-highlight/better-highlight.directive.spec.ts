@@ -1,7 +1,7 @@
 import { BetterHighlightDirective } from './better-highlight.directive';
 
 describe('BetterHighlightDirective', () => {
-  it('should create an instance', () => {
+  it('should change the background color onHover', () => {
     const directive = new BetterHighlightDirective();
     expect(directive).toBeTruthy();
   });
