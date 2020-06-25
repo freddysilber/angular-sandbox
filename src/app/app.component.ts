@@ -12,6 +12,7 @@ export class AppComponent {
   log = []
   oddNumbers: number[] = []
   evenNumbers: number[] = []
+  switchValue: number = 5 // look at template for ngSwitch useage
 
   onToggleDisplay() {
     this.showSecret = !this.showSecret

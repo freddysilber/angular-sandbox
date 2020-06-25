@@ -19,6 +19,7 @@
 		<div class="col-xs-12">
 			<button class="btn btn-secondary" (click)="onToggleDisplay()">Display Details</button>
 			<p *ngIf="showSecret">Secret Password = booboo chicken</p>
+			<p *appUnless="!showSecret">Secret Password = booboo chicken</p>
 			<div *ngFor="let logItem of log; let i = index"
 				[ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
 				[ngClass]="{'white-text' : i >= 4}">{{logItem}}</div>
@@ -40,3 +41,10 @@
 <p appBasicHighlight>Style me with basic directive</p>
 <p [appBetterHighlight]="'red'" defaultColor="yellow">Style me with a better directive</p>
 <p appBetterHighlight>yo yo yo </p>
+
+<div [ngSwitch]="switchValue">
+	<p *ngSwitchCase="5">values is 5</p>
+	<p *ngSwitchCase="100">values is 100</p>
+	<p *ngSwitchCase="10">values is 10</p>
+	<p *ngSwitchDefault>values is default</p>
+</div>
