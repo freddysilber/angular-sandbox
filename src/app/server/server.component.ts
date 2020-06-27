@@ -1,4 +1,6 @@
 import { Component, OnDestroy } from '@angular/core'
+import { UtilService } from '../util.service'
+import { utils } from 'protractor'
 
 const OFFLINE: string = 'offline'
 const ONLINE: string = 'online'
@@ -17,13 +19,13 @@ export class ServerComponent implements OnDestroy {
 	serverId: number = Math.random() * 10
 	serverStatus: string = OFFLINE
 
-	constructor() {
+	constructor(private UtilService: UtilService) {
 		this.serverStatus = Math.random() > 0.5 ? ONLINE : OFFLINE
 	}
 
 	getServerStatus = () => this.serverStatus
 
-	getColor = () => this.serverStatus === ONLINE ? 'green' : 'red'
+	getColor = () => this.serverStatus === ONLINE ? this.UtilService.colors.lightgreen : this.UtilService.colors.red
 
 	ngOnDestroy() {
 		console.log('ngOnDestroy called! something was removed from the DOM')
