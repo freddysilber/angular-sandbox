@@ -12,9 +12,9 @@ export class SuccessAlertComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   handleSuccessClick(successElement: HTMLInputElement) {
     console.log('Local Ref alt 2', this.successRef, this.successRef.nativeElement, this.successRef.nativeElement.value)
     console.log(successElement, successElement.value)
   }
-
 }
