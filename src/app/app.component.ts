@@ -5,7 +5,7 @@ import { LoggingService } from './loggingService.service'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LoggingService]
+  providers: [LoggingService] // This could be injected in app.module.ts (this would be the very highest in the chain were we could inject this)
 })
 export class AppComponent {
   name = 'Freddy'
@@ -36,6 +36,7 @@ export class AppComponent {
     this.loggingService.logAString(`Switch is running! ${this.switchValue}`)
     const sum: number = this.loggingService.getSum(2, 9)
     const summ: number = this.loggingService.getSum(sum, 2)
-    console.log(sum, summ)
+    const summm: number = this.loggingService.getSum(this.loggingService.getSum(1, 2), this.loggingService.getSum(3, 4))
+    console.log(sum, summ, summm)
   }
 }
