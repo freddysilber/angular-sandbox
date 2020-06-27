@@ -40,8 +40,10 @@
 <!-- Below are example of custom directives -->
 <p appBasicHighlight>Style me with basic directive</p>
 <p [appBetterHighlight]="'red'" defaultColor="yellow">Style me with a better directive</p>
-<p appBetterHighlight>yo yo yo </p>
+<p appBetterHighlight>yo yo yo</p>
 
+<!-- Ng switch is like a switch statement in JS -->
+<button class="btn btn-secondary" (click)="runSwitch()">Peep the ngSwitch {{switchValue}}</button>
 <div [ngSwitch]="switchValue">
 	<p *ngSwitchCase="5">values is 5</p>
 	<p *ngSwitchCase="100">values is 100</p>
