@@ -57,5 +57,4 @@ export class WarningAlertComponent implements
   handleWarningClick() {
     this.timesClicked++
   }
-
 }
