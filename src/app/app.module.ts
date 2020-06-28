@@ -6,8 +6,8 @@ import { Routes, RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { WarningAlertComponent } from './warning-alert/warning-alert.component';
-import { SuccessAlertComponent } from './success-alert/success-alert.component';
+import { WarningAlertComponent } from './components/alerts/warning-alert/warning-alert.component'
+import { SuccessAlertComponent } from './components/alerts/success-alert/success-alert.component'
 import { ClickerComponent } from './counter/clicker/clicker.component';
 import { CountComponent } from './counter/count/count.component';
 import { CounterComponent } from './counter/counter.component';
@@ -15,8 +15,8 @@ import { CockpitComponent } from './cockpit/cockpit.component';
 import { GameControlComponent } from './game-control/game-control.component';
 import { OddComponent } from './odd/odd.component';
 import { EvenComponent } from './even/even.component'
-import { BasicHighlightDirective } from './basic-highlight/basic-hightlight.directive';
-import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
+import { BasicHighlightDirective } from './directives/basic-highlight/basic-hightlight.directive';
+import { BetterHighlightDirective } from './directives/better-highlight/better-highlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './dashboard/dashboard.component';
