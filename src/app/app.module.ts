@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
+import { Routes, RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component'
 import { ServerComponent } from './server/server.component';
@@ -17,6 +18,13 @@ import { EvenComponent } from './even/even.component'
 import { BasicHighlightDirective } from './basic-highlight/basic-hightlight.directive';
 import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
 import { UnlessDirective } from './unless.directive';
+
+const appRoutes: Routes = [
+  { path: '', component: AppComponent },
+  { path: 'counter', component: CounterComponent },
+  { path: 'servers', component: ServersComponent },
+  { path: 'game', component: GameControlComponent },
+]
 
 @NgModule({
   declarations: [
@@ -38,7 +46,8 @@ import { UnlessDirective } from './unless.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

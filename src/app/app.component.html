@@ -1,3 +1,17 @@
+<!-- Routing -->
+<div class="container">
+	<div class="row">
+		<ul class="nav nav-tabs">
+			<li role="presentation" class="active"><a href="">Home</a></li>
+			<li role="presentation"><a href="counter">Counter</a></li>
+			<li role="presentation"><a href="servers">Servers</a></li>
+			<li role="presentation"><a href="game">Game</a></li>
+		</ul>
+	</div>
+</div>
+<router-outlet></router-outlet>
+<hr>
+<!-- Learning -->
 <h6>A simple interval game</h6>
 <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
 <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
@@ -23,12 +37,10 @@
 			<div *ngFor="let logItem of log; let i = index"
 				[ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
 				[ngClass]="{'white-text' : i >= 4}">{{logItem}}</div>
-
 			<label>Username</label>
 			<input type="text" class="form-control" [(ngModel)]="username">
 			<p>{{username}}</p>
 			<button class="btn btn-primary" [disabled]="username === ''" (click)="username = ''">Reset User</button>
-
 			<h3>Im in the app component</h3>
 			<input type="text" [(ngModel)]="name">
 			<p>{{name}}</p>
@@ -41,7 +53,6 @@
 <p appBasicHighlight>Style me with basic directive</p>
 <p [appBetterHighlight]="'red'" defaultColor="yellow">Style me with a better directive</p>
 <p appBetterHighlight>yo yo yo</p>
-
 <!-- Ng switch is like a switch statement in JS -->
 <button class="btn btn-secondary" (click)="runSwitch()">Peep the ngSwitch {{switchValue}}</button>
 <div [ngSwitch]="switchValue">
