@@ -18,9 +18,11 @@ import { EvenComponent } from './even/even.component'
 import { BasicHighlightDirective } from './basic-highlight/basic-hightlight.directive';
 import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
 import { UnlessDirective } from './unless.directive';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: DashboardComponent },
   { path: 'counter', component: CounterComponent },
   { path: 'servers', component: ServersComponent },
   { path: 'game', component: GameControlComponent },
@@ -42,12 +44,14 @@ const appRoutes: Routes = [
     EvenComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
