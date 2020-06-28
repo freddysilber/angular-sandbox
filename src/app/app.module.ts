@@ -12,9 +12,9 @@ import { ClickerComponent } from './counter/clicker/clicker.component';
 import { CountComponent } from './counter/count/count.component';
 import { CounterComponent } from './counter/counter.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
-import { GameControlComponent } from './game-control/game-control.component';
-import { OddComponent } from './odd/odd.component';
-import { EvenComponent } from './even/even.component'
+import { GameControlComponent } from './interval-game/game-control/game-control.component';
+import { OddComponent } from './interval-game/odd/odd.component';
+import { EvenComponent } from './interval-game/even/even.component'
 import { BasicHighlightDirective } from './directives/basic-highlight/basic-hightlight.directive';
 import { BetterHighlightDirective } from './directives/better-highlight/better-highlight.directive';
 import { UnlessDirective } from './unless.directive';
