@@ -25,6 +25,7 @@ const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'counter', component: CounterComponent },
   { path: 'servers', component: ServersComponent },
+  { path: 'servers/:id', component: ServerComponent },
   { path: 'game', component: GameControlComponent },
 ]
 

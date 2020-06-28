@@ -12,10 +12,8 @@ const ONLINE: string = 'online'
 			color: white;
 		}
 	`]
-	// styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnDestroy {
-	// PROPS!
 	serverId: number = Math.random() * 10
 	serverStatus: string = OFFLINE
 

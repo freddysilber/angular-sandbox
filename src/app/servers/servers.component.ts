@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Router, ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-servers',
@@ -12,7 +13,7 @@ export class ServersComponent implements OnInit {
   serverCreated: boolean = false
   servers = ['test server', 'test server 2']
 
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute) {
     setTimeout(() => {
       this.allowNewServer = true
     }, 2000)
@@ -32,4 +33,8 @@ export class ServersComponent implements OnInit {
 
   handleDeleteServer = (index: number) => this.servers.splice(index, 1)
 
+  onReload() {
+    console.log('Implement Me!!!')
+    // this.router.navigate(['servers'], { relativeTo: this.route })
+  }
 }
