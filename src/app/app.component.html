@@ -15,6 +15,9 @@
 </ul>
 <router-outlet></router-outlet>
 <hr>
+<app-user></app-user>
+<p *ngIf="userActivated">Activated!</p>
+<hr>
 <!-- Learning -->
 <h6>A simple interval game</h6>
 <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>

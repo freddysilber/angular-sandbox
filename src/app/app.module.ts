@@ -19,7 +19,8 @@ import { BetterHighlightDirective } from './directives/better-highlight/better-h
 import { UnlessDirective } from './unless.directive'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
+import { UserComponent } from './user/user.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AppRoutingModule } from './app-routing.module'
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    DashboardComponent
+    DashboardComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

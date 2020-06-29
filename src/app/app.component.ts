@@ -1,5 +1,7 @@
-import { Component } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { LoggingService } from './loggingService.service'
+import { UserService } from './user.service'
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,7 @@ import { LoggingService } from './loggingService.service'
   styleUrls: ['./app.component.css'],
   providers: [LoggingService] // This could be injected in app.module.ts (this would be the very highest in the chain were we could inject this)
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   name = 'Freddy'
   username: string = '' // Test username
   showSecret: boolean = false // Toggle show 'super secret' message
@@ -15,8 +17,20 @@ export class AppComponent {
   oddNumbers: number[] = [] // Collection of odd numbers
   evenNumbers: number[] = [] // Collection of even numbers
   switchValue: number = 0 // look at template for ngSwitch useage. This is the value to switch on in the template
+  userActivated: boolean = false // This value comes from a 'Subject' in the user.service.ts
+  private activatedSub: Subscription
 
-  constructor(private loggingService: LoggingService) { }
+  constructor(private loggingService: LoggingService, private userService: UserService) { }
+
+  ngOnInit() {
+    this.activatedSub = this.userService.activatedEmitter.subscribe(didActivate => {
+      this.userActivated = didActivate
+    })
+  }
+
+  ngOnDestroy() {
+    this.activatedSub.unsubscribe()
+  }
 
   onToggleDisplay() {
     this.showSecret = !this.showSecret
