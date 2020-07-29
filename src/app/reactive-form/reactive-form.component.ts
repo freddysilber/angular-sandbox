@@ -26,6 +26,7 @@ export class ReactiveFormComponent implements OnInit {
 
   onsubmit() {
     console.log(this.signupForm) // This will log the form data
+    // this.signupForm.reset()
   }
 
   addHobby() {
