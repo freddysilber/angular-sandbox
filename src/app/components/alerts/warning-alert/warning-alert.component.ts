@@ -19,39 +19,39 @@ export class WarningAlertComponent implements
   @ContentChild('warningTitle') warningTitleContent: ElementRef
 
   constructor() {
-    console.log('constructor called')
+    // console.log('constructor called')
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit called')
+    // console.log('ngOnInit called')
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges is called', changes)
+    // console.log('ngOnChanges is called', changes)
   }
 
   ngDoCheck() {
-    console.log('ngDoCheck called')
+    // console.log('ngDoCheck called')
   }
 
   ngAfterContentInit() {
-    console.log('ngAfterContentInit called', this.warningTitleContent.nativeElement.textContent)
+    // console.log('ngAfterContentInit called', this.warningTitleContent.nativeElement.textContent)
   }
 
   ngAfterContentChecked() {
-    console.log('ngAfterContentChecked called')
+    // console.log('ngAfterContentChecked called')
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit called')
+    // console.log('ngAfterViewInit called')
   }
 
   ngAfterViewChecked() {
-    console.log('ngAfterViewChecked')
+    // console.log('ngAfterViewChecked')
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy called')
+    // console.log('ngOnDestroy called')
   }
 
   handleWarningClick() {
