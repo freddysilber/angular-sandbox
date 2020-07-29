@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component'
 import { ServerComponent } from './server/server.component'
@@ -20,7 +20,8 @@ import { UnlessDirective } from './unless.directive'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { AppRoutingModule } from './app-routing.module';
-import { UserComponent } from './user/user.component'
+import { UserComponent } from './user/user.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
 
 @NgModule({
   declarations: [
@@ -40,13 +41,15 @@ import { UserComponent } from './user/user.component'
     BetterHighlightDirective,
     UnlessDirective,
     DashboardComponent,
-    UserComponent
+    UserComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

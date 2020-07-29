@@ -1,0 +1,14 @@
+label {
+	padding-right: 1rem;
+}
+h1 {
+	text-decoration: underline;
+	color: orchid;
+}
+.reactiveFormContainer {
+	text-align: center;
+	margin: 1rem;
+	padding: 1rem;
+	border: 1px solid black;
+	border-radius: 15px;
+}
