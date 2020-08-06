@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExploringPipesComponent implements OnInit {
   myName: string = 'Freddy Silber'
+  greeting: string = 'Hello, My name is Freddy Silber and this is a really long gretting!'
   todaysDate = new Date()
+  filteredStatus: string = ''
+
+  reference: string = 'https://angular.io/api?query=pipe'
 
   constructor() { }
 
