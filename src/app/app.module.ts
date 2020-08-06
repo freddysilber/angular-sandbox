@@ -21,7 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { AppRoutingModule } from './app-routing.module';
 import { UserComponent } from './user/user.component';
-import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
     UnlessDirective,
     DashboardComponent,
     UserComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    ExploringPipesComponent
   ],
   imports: [
     BrowserModule,

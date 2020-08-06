@@ -7,6 +7,7 @@ import { ServersComponent } from './servers/servers.component'
 import { ServerComponent } from './server/server.component'
 import { GameControlComponent } from './interval-game/game-control/game-control.component'
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
+import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.component'
 
 const appRoutes: Routes = [
 	{ path: '', component: DashboardComponent },
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
 	{ path: 'servers', component: ServersComponent },
 	{ path: 'servers/:id/:status', component: ServerComponent },
 	{ path: 'game', component: GameControlComponent },
-	{ path: 'reactive-form', component: ReactiveFormComponent }
+	{ path: 'reactive-form', component: ReactiveFormComponent },
+	{ path: 'pipes', component: ExploringPipesComponent }
 ]
 
 @NgModule({
