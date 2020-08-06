@@ -1,8 +1,11 @@
-<h1>My Name: {{ myName | uppercase }}</h1>
-<p>Greeting with shorten pipe: {{ greeting | shorten:40 }}</p>
-<p>{{ todaysDate | date:'fullDate' }}</p>
-<p>{{ todaysDate | date:'fullDate' | uppercase }}</p>
-<a [href]="reference">Pipes Docs</a>
-<br>
-<input type="text" [(ngModel)]="filteredStatus">
-<hr>
+<div class="pipeContainer">
+	<h1>[Pipes]</h1>
+	<h2>My Name: {{ myName | uppercase }}</h2>
+	<p>Greeting with shorten pipe: {{ greeting | shorten:40 }}</p>
+	<p>{{ todaysDate | date:'fullDate' }}</p>
+	<p>{{ todaysDate | date:'fullDate' | uppercase }}</p>
+	<a [href]="reference">Pipes Docs</a>
+	<br>
+	<input type="text" [(ngModel)]="filteredStatus">
+	<hr>
+</div>
