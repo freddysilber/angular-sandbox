@@ -1,6 +1,6 @@
 // Angular
 import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router'
 // Components
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { CounterComponent } from './counter/counter.component'
@@ -13,6 +13,10 @@ import { SomethingNewComponent } from './something-new/something-new.component'
 
 const appRoutes: Routes = [
 	{ path: '', component: DashboardComponent },
+	// {
+	// 	path: 'counter',
+	// 	loadChildren: './counter/counter.module#CounterModule'
+	// },
 	{ path: 'counter', component: CounterComponent },
 	{ path: 'servers', component: ServersComponent },
 	{ path: 'servers/:id/:status', component: ServerComponent },
@@ -24,7 +28,7 @@ const appRoutes: Routes = [
 
 @NgModule({
 	imports: [
-		RouterModule.forRoot(appRoutes)
+		RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })
 		// RouterModule.forRoot(appRoutes, { useHash: true })
 	],
 	exports: [RouterModule]
