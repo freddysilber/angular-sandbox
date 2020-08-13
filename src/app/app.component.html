@@ -24,6 +24,7 @@
 </ul>
 <router-outlet></router-outlet>
 <hr>
+<button type="button" nglButton variant="brand">base</button>
 <app-user></app-user>
 <p *ngIf="userActivated">Activated!</p>
 <hr>
@@ -34,7 +35,7 @@
 <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
 <hr>
 <br>
-<app-counter></app-counter>
+<!-- <app-counter></app-counter> -->
 <hr>
 <app-cockpit (worldCreated)="onWorldCreated($event)"></app-cockpit>
 <hr>
@@ -77,3 +78,7 @@
 	<p *ngSwitchCase="10">values is 10</p>
 	<p *ngSwitchDefault>values is default</p>
 </div>
+<!-- SLDS icons -->
+<ngl-icon iconName="action:call" size="small" alternativeText="Click to Call"></ngl-icon>
+<ngl-icon iconName="utility:lock" variant="error"></ngl-icon>
+<ngl-icon iconName="utility:close" variant="warning"></ngl-icon>

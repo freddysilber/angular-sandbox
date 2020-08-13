@@ -30,6 +30,7 @@ import { ShortenPipe } from './shorten.pipe'
 import { FilterPipe } from './filter.pipe'
 // Modules
 import { CounterModule } from './counter/counter.module'
+import { NglModule } from 'ng-lightning'
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CounterModule } from './counter/counter.module'
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    CounterModule
+    CounterModule,
+    NglModule
   ],
   providers: [],
   bootstrap: [AppComponent]
