@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component'
 import { ServerComponent } from './server/server.component'
@@ -24,10 +25,12 @@ import { UserComponent } from './user/user.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.component'
 import { ShortenPipe } from './shorten.pipe';
-import { FilterPipe } from './filter.pipe'
+import { FilterPipe } from './filter.pipe';
+import { SomethingNewComponent } from './something-new/something-new.component'
 
 @NgModule({
   declarations: [
+    BrowserAnimationsModule,
     AppComponent,
     ServerComponent,
     ServersComponent,
@@ -48,7 +51,8 @@ import { FilterPipe } from './filter.pipe'
     ReactiveFormComponent,
     ExploringPipesComponent,
     ShortenPipe,
-    FilterPipe
+    FilterPipe,
+    SomethingNewComponent
   ],
   imports: [
     BrowserModule,
