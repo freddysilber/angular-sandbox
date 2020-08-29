@@ -30,7 +30,9 @@ import { ShortenPipe } from './shorten.pipe'
 import { FilterPipe } from './filter.pipe'
 // Modules
 import { CounterModule } from './counter/counter.module'
-import { NglModule } from 'ng-lightning'
+import { NglModule } from 'ng-lightning';
+import { ObservablePracticeComponent } from './observable-practice/observable-practice.component';
+import { NavigationComponent } from './components/navigation/navigation.component'
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { NglModule } from 'ng-lightning'
     SomethingNewComponent,
     ShortenPipe,
     FilterPipe,
+    ObservablePracticeComponent,
+    NavigationComponent,
     // BrowserAnimationsModule
   ],
   imports: [

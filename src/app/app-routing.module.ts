@@ -10,6 +10,7 @@ import { GameControlComponent } from './interval-game/game-control/game-control.
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
 import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.component'
 import { SomethingNewComponent } from './something-new/something-new.component'
+import { ObservablePracticeComponent } from './observable-practice/observable-practice.component'
 
 const appRoutes: Routes = [
 	{ path: '', component: DashboardComponent },
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
 	{ path: 'game', component: GameControlComponent },
 	{ path: 'reactive-form', component: ReactiveFormComponent },
 	{ path: 'pipes', component: ExploringPipesComponent },
-	{ path: 'something-new', component: SomethingNewComponent }
+	{ path: 'something-new', component: SomethingNewComponent },
+	{ path: 'observable-practice', component: ObservablePracticeComponent }
 ]
 
 @NgModule({
