@@ -56,6 +56,8 @@ export class ObservablePracticeComponent implements OnInit, OnDestroy {
   }
 
   stopTimer(): void {
+    console.log(this.timerSub)
     this.timerSub.unsubscribe()
+    this.timerSub = null // Set to null so user can start and stop timer as much as they want
   }
 }
