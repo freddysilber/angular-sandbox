@@ -14,7 +14,8 @@ const sequence = new Observable(sequenceSubscriber)
 function sequenceSubscriber(observer) {
   observer.next('Apple')
   observer.next('Orange')
-  observer.next('Grappe')
+  observer.next('Grape')
+  observer.next('Waltermelon')
   observer.complete()
 
   return { unsubscribe() { } }
