@@ -48,7 +48,10 @@ export class ObservablePracticeComponent implements OnInit, OnDestroy {
   }
 
   startTimer(): void {
-    this.timerSub = timer(0, 500).subscribe(val => this.timerValue = val)
+    if (this.timerSub) { // Try to prevent user to start multiple timers 
+      return
+    }
+    this.timerSub = timer(0, 1000).subscribe(val => this.timerValue = val)
   }
 
   stopTimer(): void {
