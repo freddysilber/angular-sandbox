@@ -13,7 +13,7 @@ export class ObservablePracticeComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit(): void {
-
+    console.log('%c <-- OBSERVABLE PRACTICE -->', 'color: gold')
   }
 
   ngOnDestroy(): void {

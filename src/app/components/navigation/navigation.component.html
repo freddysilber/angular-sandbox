@@ -1,26 +1,17 @@
 <ul class="nav nav-tabs">
 	<li class="nav-item">
-		<a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Home</a>
+		<a class="nav-link"
+		   routerLinkActive="active"
+		   [routerLinkActiveOptions]="{exact: true}"
+		   routerLink="/">
+			Home
+		</a>
 	</li>
-	<li class="nav-item">
-		<a class="nav-link" routerLinkActive="active" routerLink="/counter">Counter</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" routerLinkActive="active" routerLink="/servers">Servers</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" routerLinkActive="active" routerLink="/game">Game</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" routerLinkActive="active" routerLink="/reactive-form">Reactive Form</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" routerLinkActive="active" routerLink="/pipes">Pipes</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" routerLinkActive="active" routerLink="/something-new">Something New....</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" routerLinkActive="active" routerLink="/observable-practice">Let's learn observables!</a>
+	<li *ngFor="let route of routes" class="nav-item">
+		<a class="nav-link"
+		   routerLinkActive="active"
+		   [routerLink]="route.path">
+			{{ route.name }}
+		</a>
 	</li>
 </ul>
