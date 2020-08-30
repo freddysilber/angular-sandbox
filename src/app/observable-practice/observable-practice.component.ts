@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { timer, of, Subscription, Observable } from 'rxjs'
+import { timer, of, Subscription, Observable, pipe } from 'rxjs'
+import { filter, reduce } from 'rxjs/operators'
 
 const myObserver = {
   next: (x: string) => console.log('Observer got a next value: ' + x),
@@ -66,6 +67,7 @@ setTimeout(() => {
 export class ObservablePracticeComponent implements OnInit, OnDestroy {
   private timerSub: Subscription
   public timerValue: number = 0
+  public ages: number[] = []
 
   constructor() { }
 
@@ -77,6 +79,17 @@ export class ObservablePracticeComponent implements OnInit, OnDestroy {
       next(msg) { console.log(msg) },
       complete() { console.log('Finished sequence') }
     })
+
+
+    const ages = of(21, 2, 3, 33, 4, 45, 32, 89, 64, 42, 22, 65, 23)
+    const agesTest = ages.pipe(
+      filter(x => x % 2 === 0)
+      // reduce((acc, one) => acc + one, 0)
+    )
+    agesTest.subscribe(x => {
+      console.log(x)
+      this.ages.push(x)
+    }).unsubscribe()
   }
 
   ngOnDestroy(): void {
