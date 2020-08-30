@@ -24,7 +24,9 @@ export class ServerComponent implements OnInit, OnDestroy {
 
 	getServerStatus = () => this.serverStatus
 
-	getColor = () => this.serverStatus === ONLINE ? this.UtilService.colors.lightgreen : this.UtilService.colors.red
+	getColor = () => this.serverStatus === ONLINE
+		? this.UtilService.colors.lightgreen
+		: this.UtilService.colors.red
 
 	ngOnInit() {
 		this.server = {

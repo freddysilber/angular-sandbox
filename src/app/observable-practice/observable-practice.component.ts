@@ -1,5 +1,24 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { timer, Subscription } from 'rxjs'
+import { timer, of, Subscription, Observable } from 'rxjs'
+
+const myObserver = {
+  next: (x: string) => console.log('Observer got a next value: ' + x),
+  error: (err: string) => console.error('Observer got an error: ' + err),
+  complete: () => console.log('Observer got a complete notification'),
+}
+
+const myObservable = of('apple', 'orange', 'bananna', 'grape', 'watermelon')
+
+const sequence = new Observable(sequenceSubscriber)
+
+function sequenceSubscriber(observer) {
+  observer.next('Apple')
+  observer.next('Orange')
+  observer.next('Grappe')
+  observer.complete()
+
+  return { unsubscribe() { } }
+}
 
 @Component({
   selector: 'app-observable-practice',
@@ -14,10 +33,18 @@ export class ObservablePracticeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     console.log('%c <-- OBSERVABLE PRACTICE -->', 'color: gold')
+    myObservable.subscribe(myObserver)
+
+    sequence.subscribe({
+      next(msg) { console.log(msg) },
+      complete() { console.log('Finished sequence') }
+    })
   }
 
   ngOnDestroy(): void {
-    this.timerSub.unsubscribe()
+    if (this.timerSub) {
+      this.timerSub.unsubscribe()
+    }
   }
 
   startTimer(): void {
