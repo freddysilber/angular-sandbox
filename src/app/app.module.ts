@@ -27,7 +27,7 @@ import { UnlessDirective } from './unless.directive'
 // Modules
 import { AppRoutingModule } from './app-routing.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import { NglModule } from 'ng-lightning';
+import { NglModule } from 'ng-lightning'
 
 @NgModule({
   declarations: [
