@@ -18,7 +18,8 @@ export class NavigationComponent {
 		{ name: 'Reactive Form', path: '/reactive-form' },
 		{ name: 'Pipes', path: '/pipes' },
 		{ name: 'Something New', path: '/something-new' },
-		{ name: 'Observable Practice', path: '/observable-practice' }
+		{ name: 'Observable Practice', path: '/observable-practice' },
+		{ name: 'Features', path: '/features' }
 	]
 
 	constructor() { }

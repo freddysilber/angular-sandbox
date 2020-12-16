@@ -25,7 +25,11 @@ const ROUTES: Routes = [
 	{ path: 'reactive-form', component: ReactiveFormComponent },
 	{ path: 'pipes', component: ExploringPipesComponent },
 	{ path: 'something-new', component: SomethingNewComponent },
-	{ path: 'observable-practice', component: ObservablePracticeComponent }
+	{ path: 'observable-practice', component: ObservablePracticeComponent },
+	{
+		path: 'features',
+		loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule)
+	}
 ]
 
 @NgModule({
