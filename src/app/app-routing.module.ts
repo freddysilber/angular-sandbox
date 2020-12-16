@@ -5,7 +5,6 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { ServersComponent } from './servers/servers.component'
 import { ServerComponent } from './server/server.component'
-import { GameControlComponent } from './interval-game/game-control/game-control.component'
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
 import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.component'
 import { SomethingNewComponent } from './something-new/something-new.component'
@@ -19,7 +18,10 @@ const ROUTES: Routes = [
 	},
 	{ path: 'servers', component: ServersComponent },
 	{ path: 'servers/:id/:status', component: ServerComponent },
-	{ path: 'game', component: GameControlComponent },
+	{
+		path: 'game',
+		loadChildren: () => import('./modules/interval-game/interval-game.module').then(m => m.IntervalGameModule)
+	},
 	{ path: 'reactive-form', component: ReactiveFormComponent },
 	{ path: 'pipes', component: ExploringPipesComponent },
 	{ path: 'something-new', component: SomethingNewComponent },

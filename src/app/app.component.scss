@@ -8,3 +8,12 @@ h3 {
 	background-color: black;
 	height: 1rem;
 }
+div.featureSection {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin: .25rem;
+	padding: .25rem;
+}

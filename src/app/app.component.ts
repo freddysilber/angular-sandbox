@@ -14,8 +14,6 @@ export class AppComponent implements OnInit, OnDestroy {
   username: string = '' // Test username
   showSecret: boolean = false // Toggle show 'super secret' message
   log: Date[] = [] // Collection of timestamps
-  oddNumbers: number[] = [] // Collection of odd numbers
-  evenNumbers: number[] = [] // Collection of even numbers
   switchValue: number = 0 // look at template for ngSwitch useage. This is the value to switch on in the template
   userActivated: boolean = false // This value comes from a 'Subject' in the user.service.ts
   private activatedSub: Subscription
@@ -37,10 +35,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onWorldCreated(event) {
     console.log('You just opened up a whole other world!', event)
-  }
-
-  onIntervalFired(firedNumber: number) {
-    firedNumber % 2 === 0 ? this.evenNumbers.push(firedNumber) : this.oddNumbers.push(firedNumber)
   }
 
   runSwitch() {

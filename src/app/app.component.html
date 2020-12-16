@@ -5,11 +5,6 @@
 
 <app-user></app-user>
 <p *ngIf="userActivated">Activated!</p>
-<!-- Learning -->
-<h6>A simple interval game</h6>
-<app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
-<app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
-<app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
 
 <app-cockpit (worldCreated)="onWorldCreated($event)"></app-cockpit>
 
@@ -36,23 +31,24 @@
 			<h3>Im in the app component</h3>
 			<input type="text" [(ngModel)]="name">
 			<p>{{name | uppercase}}</p>
-			<hr>
 		</div>
 	</div>
 </div>
 <!-- Below are example of custom directives -->
-<p appBasicHighlight>Style me with basic directive</p>
-<p [appBetterHighlight]="'red'" defaultColor="yellow">Style me with a better directive</p>
-<p appBetterHighlight>yo yo yo</p>
-<!-- Ng switch is like a switch statement in JS -->
-<button class="btn btn-secondary" (click)="runSwitch()">Peep the ngSwitch {{switchValue}}</button>
-<div [ngSwitch]="switchValue">
-	<p *ngSwitchCase="5">values is 5</p>
-	<p *ngSwitchCase="100">values is 100</p>
-	<p *ngSwitchCase="10">values is 10</p>
-	<p *ngSwitchDefault>values is default</p>
+<div class="featureSection">
+	<p>Directive Examples</p>
+	<p appBasicHighlight>Style me with basic directive</p>
+	<p [appBetterHighlight]="'red'" defaultColor="yellow">This element is using the 'appBetterHighlight' directive</p>
+	<p appBetterHighlight>This element is using the 'appBetterHighlight' directive</p>
 </div>
-<!-- SLDS icons -->
-<ngl-icon iconName="utility:lock" variant="error"></ngl-icon>
-<ngl-icon iconName="utility:close" variant="warning"></ngl-icon>
-<ngl-icon iconName="action:call" size="small" alternativeText="Click to Call"></ngl-icon>
+<!-- Ng switch is like a switch statement in JS -->
+<div class="featureSection">
+	<p>ngSwitch Example</p>
+	<button class="btn btn-secondary" (click)="runSwitch()">Peep the ngSwitch {{switchValue}}</button>
+	<div [ngSwitch]="switchValue">
+		<p *ngSwitchCase="5">values is 5</p>
+		<p *ngSwitchCase="100">values is 100</p>
+		<p *ngSwitchCase="10">values is 10</p>
+		<p *ngSwitchDefault>values is default</p>
+	</div>
+</div>

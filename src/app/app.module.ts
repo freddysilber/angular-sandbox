@@ -10,9 +10,6 @@ import { ServersComponent } from './servers/servers.component'
 import { WarningAlertComponent } from './components/alerts/warning-alert/warning-alert.component'
 import { SuccessAlertComponent } from './components/alerts/success-alert/success-alert.component'
 import { CockpitComponent } from './cockpit/cockpit.component'
-import { GameControlComponent } from './interval-game/game-control/game-control.component'
-import { OddComponent } from './interval-game/odd/odd.component'
-import { EvenComponent } from './interval-game/even/even.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { UserComponent } from './user/user.component'
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
@@ -40,9 +37,6 @@ import { NglModule } from 'ng-lightning';
     WarningAlertComponent,
     SuccessAlertComponent,
     CockpitComponent,
-    GameControlComponent,
-    OddComponent,
-    EvenComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
