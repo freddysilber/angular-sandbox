@@ -13,23 +13,24 @@ import { CockpitComponent } from './cockpit/cockpit.component'
 import { GameControlComponent } from './interval-game/game-control/game-control.component'
 import { OddComponent } from './interval-game/odd/odd.component'
 import { EvenComponent } from './interval-game/even/even.component'
-import { BasicHighlightDirective } from './directives/basic-highlight/basic-hightlight.directive'
-import { BetterHighlightDirective } from './directives/better-highlight/better-highlight.directive'
-import { UnlessDirective } from './unless.directive'
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { AppRoutingModule } from './app-routing.module'
 import { UserComponent } from './user/user.component'
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
 import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.component'
 import { SomethingNewComponent } from './something-new/something-new.component'
-import { ShortenPipe } from './shorten.pipe'
-import { FilterPipe } from './filter.pipe'
-// Modules
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import { CounterModule } from './counter/counter.module'
-import { NglModule } from 'ng-lightning';
 import { ObservablePracticeComponent } from './observable-practice/observable-practice.component';
 import { NavigationComponent } from './components/navigation/navigation.component'
+// Pipes
+import { ShortenPipe } from './shorten.pipe'
+import { FilterPipe } from './filter.pipe'
+// Directives
+import { BasicHighlightDirective } from './directives/basic-highlight/basic-hightlight.directive'
+import { BetterHighlightDirective } from './directives/better-highlight/better-highlight.directive'
+import { UnlessDirective } from './unless.directive'
+// Modules
+import { AppRoutingModule } from './app-routing.module'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NglModule } from 'ng-lightning';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    CounterModule,
     NglModule
   ],
   providers: [],

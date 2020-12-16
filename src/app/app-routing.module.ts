@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router'
 // Components
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { CounterComponent } from './counter/counter.component'
 import { ServersComponent } from './servers/servers.component'
 import { ServerComponent } from './server/server.component'
 import { GameControlComponent } from './interval-game/game-control/game-control.component'
@@ -14,7 +13,10 @@ import { ObservablePracticeComponent } from './observable-practice/observable-pr
 
 const ROUTES: Routes = [
 	{ path: '', component: DashboardComponent },
-	{ path: 'counter', component: CounterComponent },
+	{
+		path: 'counter',
+		loadChildren: () => import('./modules/counter/counter.module').then(m => m.CounterModule)
+	},
 	{ path: 'servers', component: ServersComponent },
 	{ path: 'servers/:id/:status', component: ServerComponent },
 	{ path: 'game', component: GameControlComponent },
@@ -29,6 +31,8 @@ const ROUTES: Routes = [
 		RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
 		// RouterModule.forRoot(appRoutes, { useHash: true })
 	],
-	exports: [RouterModule]
+	exports: [
+		RouterModule
+	]
 })
 export class AppRoutingModule { }
