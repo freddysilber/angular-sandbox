@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
-
-import { ClickerComponent } from './clicker/clicker.component'
-import { AppComponent } from '../app.component'
-import { CountComponent } from './count/count.component'
 import { RouterModule } from '@angular/router'
+
+import { AppComponent } from '../app.component'
+import { ClickerComponent } from './clicker/clicker.component'
+import { CountComponent } from './count/count.component'
 import { CounterComponent } from './counter.component'
 
 @NgModule({

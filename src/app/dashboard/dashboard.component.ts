@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { Router } from '@angular/router'
-import { interval, Subscription, Observable } from 'rxjs'
+import { Subscription, Observable } from 'rxjs'
 import { map, filter } from 'rxjs/operators'
 
 @Component({

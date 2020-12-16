@@ -9,9 +9,6 @@ import { ServerComponent } from './server/server.component'
 import { ServersComponent } from './servers/servers.component'
 import { WarningAlertComponent } from './components/alerts/warning-alert/warning-alert.component'
 import { SuccessAlertComponent } from './components/alerts/success-alert/success-alert.component'
-// import { ClickerComponent } from './counter/clicker/clicker.component'
-// import { CountComponent } from './counter/count/count.component'
-// import { CounterComponent } from './counter/counter.component'
 import { CockpitComponent } from './cockpit/cockpit.component'
 import { GameControlComponent } from './interval-game/game-control/game-control.component'
 import { OddComponent } from './interval-game/odd/odd.component'
@@ -19,7 +16,6 @@ import { EvenComponent } from './interval-game/even/even.component'
 import { BasicHighlightDirective } from './directives/basic-highlight/basic-hightlight.directive'
 import { BetterHighlightDirective } from './directives/better-highlight/better-highlight.directive'
 import { UnlessDirective } from './unless.directive'
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { AppRoutingModule } from './app-routing.module'
 import { UserComponent } from './user/user.component'
@@ -29,6 +25,7 @@ import { SomethingNewComponent } from './something-new/something-new.component'
 import { ShortenPipe } from './shorten.pipe'
 import { FilterPipe } from './filter.pipe'
 // Modules
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { CounterModule } from './counter/counter.module'
 import { NglModule } from 'ng-lightning';
 import { ObservablePracticeComponent } from './observable-practice/observable-practice.component';
@@ -41,9 +38,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     ServersComponent,
     WarningAlertComponent,
     SuccessAlertComponent,
-    // ClickerComponent,
-    // CountComponent,
-    // CounterComponent,
     CockpitComponent,
     GameControlComponent,
     OddComponent,

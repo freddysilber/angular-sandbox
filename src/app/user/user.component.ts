@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { UserService } from '../user.service'
 
 @Component({
@@ -6,12 +6,9 @@ import { UserService } from '../user.service'
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
 
   constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
-  }
 
   onActivate() {
     this.userService.activatedEmitter.next(true)
