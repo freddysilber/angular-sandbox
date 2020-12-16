@@ -13,6 +13,4 @@ export class UtilService {
   }
 
   constructor() { }
-
-  // getColors = () => this.colors
 }
