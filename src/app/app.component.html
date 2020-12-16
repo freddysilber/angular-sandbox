@@ -1,9 +1,8 @@
 <app-navigation></app-navigation>
 <router-outlet></router-outlet>
 
-<hr class="appComponentFooter"/>
+<hr class="appComponentFooter" />
 
-<button type="button" nglButton variant="brand">base</button>
 <app-user></app-user>
 <p *ngIf="userActivated">Activated!</p>
 <!-- Learning -->
@@ -24,7 +23,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<button class="btn btn-secondary" (click)="onToggleDisplay()">Display Details</button>
+			<button nglButton variant="brand" (click)="onToggleDisplay()">Display Details</button>
 			<p *ngIf="showSecret">Secret Password = booboo chicken</p>
 			<p *appUnless="!showSecret">Secret Password = booboo chicken</p>
 			<div *ngFor="let logItem of log; let i = index"
@@ -38,7 +37,6 @@
 			<input type="text" [(ngModel)]="name">
 			<p>{{name | uppercase}}</p>
 			<hr>
-			<app-servers></app-servers>
 		</div>
 	</div>
 </div>

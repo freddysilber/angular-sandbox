@@ -12,7 +12,7 @@ import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.compo
 import { SomethingNewComponent } from './something-new/something-new.component'
 import { ObservablePracticeComponent } from './observable-practice/observable-practice.component'
 
-const appRoutes: Routes = [
+const ROUTES: Routes = [
 	{ path: '', component: DashboardComponent },
 	{ path: 'counter', component: CounterComponent },
 	{ path: 'servers', component: ServersComponent },
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
 
 @NgModule({
 	imports: [
-		RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })
+		RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
 		// RouterModule.forRoot(appRoutes, { useHash: true })
 	],
 	exports: [RouterModule]

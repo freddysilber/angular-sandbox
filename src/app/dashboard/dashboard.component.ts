@@ -9,7 +9,7 @@ import { map, filter } from 'rxjs/operators'
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  title: string = 'Welcome to my Angular sandbox!'
+  title: string = 'Dashboard Component'
 
   private firstObsSubscription: Subscription
 
