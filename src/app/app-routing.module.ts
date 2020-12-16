@@ -14,10 +14,6 @@ import { ObservablePracticeComponent } from './observable-practice/observable-pr
 
 const appRoutes: Routes = [
 	{ path: '', component: DashboardComponent },
-	// {
-	// 	path: 'counter',
-	// 	loadChildren: './counter/counter.module#CounterModule'
-	// },
 	{ path: 'counter', component: CounterComponent },
 	{ path: 'servers', component: ServersComponent },
 	{ path: 'servers/:id/:status', component: ServerComponent },

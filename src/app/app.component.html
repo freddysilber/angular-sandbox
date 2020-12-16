@@ -1,28 +1,24 @@
 <app-navigation></app-navigation>
 <router-outlet></router-outlet>
 
-<hr>
 <button type="button" nglButton variant="brand">base</button>
 <app-user></app-user>
 <p *ngIf="userActivated">Activated!</p>
-<hr>
 <!-- Learning -->
 <h6>A simple interval game</h6>
 <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
 <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
 <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
-<hr>
-<br>
-<!-- <app-counter></app-counter> -->
-<hr>
+
 <app-cockpit (worldCreated)="onWorldCreated($event)"></app-cockpit>
-<hr>
+
 <app-warning-alert [namechange]="name">
 	<h4 #warningTitle>PROJECTED WARNING!!!</h4>
 	<p>Projecting this content with ng-content</p>
 </app-warning-alert>
+
 <app-success-alert></app-success-alert>
-<br>
+
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
