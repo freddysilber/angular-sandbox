@@ -132,5 +132,10 @@
   "defaultProject": "angular-sandbox",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }

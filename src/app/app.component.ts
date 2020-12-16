@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   providers: [LoggingService] // This could be injected in app.module.ts (this would be the very highest in the chain were we could inject this)
 })
 export class AppComponent implements OnInit, OnDestroy {

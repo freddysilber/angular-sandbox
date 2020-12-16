@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-count',
   templateUrl: './count.component.html',
-  styleUrls: ['./count.component.css']
+  styleUrls: ['./count.component.scss']
 })
 export class CountComponent implements OnInit {
   @Input() currentCount: number = 0

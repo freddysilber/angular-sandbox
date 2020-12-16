@@ -62,7 +62,7 @@ setTimeout(() => {
 @Component({
   selector: 'app-observable-practice',
   templateUrl: './observable-practice.component.html',
-  styleUrls: ['./observable-practice.component.css']
+  styleUrls: ['./observable-practice.component.scss']
 })
 export class ObservablePracticeComponent implements OnInit, OnDestroy {
   private timerSub: Subscription

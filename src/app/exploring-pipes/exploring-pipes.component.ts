@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'app-exploring-pipes',
   templateUrl: './exploring-pipes.component.html',
-  styleUrls: ['./exploring-pipes.component.css']
+  styleUrls: ['./exploring-pipes.component.scss']
 })
 export class ExploringPipesComponent {
   myName: string = 'Freddy Silber'

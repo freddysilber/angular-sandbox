@@ -3,7 +3,7 @@ import { Component, Input, ContentChild, ElementRef } from '@angular/core'
 @Component({
   selector: 'app-warning-alert',
   templateUrl: './warning-alert.component.html',
-  styleUrls: ['./warning-alert.component.css']
+  styleUrls: ['./warning-alert.component.scss']
 })
 export class WarningAlertComponent {
   timesClicked: number = 0

@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  styleUrls: ['./servers.component.scss']
 })
 export class ServersComponent implements OnInit {
   allowNewServer: boolean = false

@@ -3,7 +3,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 @Component({
   selector: 'app-success-alert',
   templateUrl: './success-alert.component.html',
-  styleUrls: ['./success-alert.component.css']
+  styleUrls: ['./success-alert.component.scss']
 })
 export class SuccessAlertComponent {
   @ViewChild('successElement') successRef: ElementRef
