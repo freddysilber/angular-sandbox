@@ -24,7 +24,7 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this._incrementSub = this._observablesService.incrementEmitter.pipe(
+		this._incrementSub = this._observablesService.incrementEmitter$.pipe(
 			map((value: number) => {
 				if (typeof value === 'number') {
 					return value % 2 === 0 ? `Even: ${value}` : `Odd: ${value}`
@@ -46,7 +46,7 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 	}
 
 	increment() {
-		this._observablesService.incrementEmitter.next(this.count++)
+		this._observablesService.incrementEmitter$.next(this.count++)
 	}
 
 	exploreObservables() {

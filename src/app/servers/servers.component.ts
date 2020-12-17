@@ -23,17 +23,21 @@ export class ServersComponent implements OnInit {
     console.log('ng On Init is a hook!')
   }
 
-  onCreateServer = () => {
+  onCreateServer(): void {
     this.serverCreated = true
     this.servers.push(this.serverName)
     this.serverCreationStatus = `Server was created! Name is ${this.serverName}`
   }
 
-  onUpdateServerName = (event: any) => this.serverName = (<HTMLInputElement>event.target).value
+  onUpdateServerName(event: any): void {
+    this.serverName = (<HTMLInputElement>event.target).value
+  }
 
-  handleDeleteServer = (index: number) => this.servers.splice(index, 1)
+  handleDeleteServer(index: number): void {
+    this.servers.splice(index, 1)
+  }
 
-  onReload() {
+  onReload(): void {
     console.log('Implement Me!!!')
     // this.router.navigate(['servers'], { relativeTo: this.route })
   }

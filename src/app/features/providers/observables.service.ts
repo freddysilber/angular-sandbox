@@ -14,7 +14,7 @@ const RETIREMENT = 65
 })
 export class ObservablesService {
 	customIntervalSubscription: Subscription
-	incrementEmitter: BehaviorSubject<Stream> = new BehaviorSubject<Stream>('Incrementing numbers')
+	incrementEmitter$: BehaviorSubject<Stream> = new BehaviorSubject<Stream>('Incrementing numbers')
 	// incrementEmitter: Subject<number> = new Subject<number>()
 	private _myStream: Stream[] = [
 		'Freddy',
