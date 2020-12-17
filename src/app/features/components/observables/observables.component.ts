@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core'
-import { interval, Subscription } from 'rxjs'
+import { from, interval, Observable, Subscription } from 'rxjs'
+import { take, map, skip } from 'rxjs/operators'
 
 import { ObservablesService } from '../../providers'
 
@@ -10,7 +11,7 @@ import { ObservablesService } from '../../providers'
 })
 export class ObservablesComponent implements OnDestroy {
 	inputPlaceholder: string
-	private sub: Subscription
+	private _sub: Subscription
 
 	constructor(
 		private ObservablesService: ObservablesService
@@ -27,9 +28,20 @@ export class ObservablesComponent implements OnDestroy {
 	}
 
 	processAlphabet(event) {
-		this.sub = interval(100).subscribe(count => {
+		console.log(event.value.split(''))
+		const alphabetObservable: Observable<string> = from(event.value.split('')).pipe(
+			skip(1),
+			take(15),
+			map((letter: string) => 'letter: ' + letter)
+		)
+
+		alphabetObservable.subscribe((letter: string) => {
+			console.log(letter)
+		}).unsubscribe()
+
+		this._sub = interval(100).subscribe(count => {
 			if (!event.value[count]) {
-				this.sub.unsubscribe()
+				this._sub.unsubscribe()
 			} else {
 				console.log(event.value[count])
 			}
