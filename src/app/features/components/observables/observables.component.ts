@@ -8,12 +8,19 @@ import { ObservablesService } from '../../providers'
 	styleUrls: ['./observables.component.scss']
 })
 export class ObservablesComponent {
+	inputPlaceholder: string
 
-	constructor(private ObservablesService: ObservablesService) {
-
+	constructor(
+		private ObservablesService: ObservablesService
+	) {
+		this.inputPlaceholder = 'abcdefghijklmnopqrstuvwxyz'
 	}
 
 	sayHi() {
 		this.ObservablesService.sayHi()
+	}
+
+	processAlphabet(event) {
+		this.ObservablesService.processAlphabet(event.value)
 	}
 }
