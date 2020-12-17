@@ -7,6 +7,8 @@ type Stream =
 	| number
 	| object
 
+const RETIREMENT = 65
+
 @Injectable({
 	providedIn: 'root'
 })
@@ -19,12 +21,16 @@ export class ObservablesService {
 		21
 	]
 
+	private _getYearsToRetirement(age: number): number {
+		return RETIREMENT - age
+	}
+
 	exploreObservables() {
 		let greeting: string = 'Hi, Im '
-		const myObservable = from(this._myStream).pipe(
-			map((value) => {
+		const myObservable: Observable<Stream> = from(this._myStream).pipe(
+			map((value: Stream) => {
 				if (typeof value === 'number') {
-					return 'and I am ' + value + ' years old.'
+					return `and I am ${value} years old. and ${this._getYearsToRetirement(value)} years from retirement!`
 				}
 				return value
 			})
