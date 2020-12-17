@@ -8,9 +8,9 @@ const myObserver = {
   complete: () => console.log('Observer got a complete notification'),
 }
 
-const myObservable = of('apple', 'orange', 'bananna', 'grape', 'watermelon')
+const myObservable: Observable<string> = of('apple', 'orange', 'bananna', 'grape', 'watermelon')
 
-const sequence = new Observable(sequenceSubscriber)
+const sequence: Observable<string> = new Observable(sequenceSubscriber)
 
 function sequenceSubscriber(observer) {
   observer.next('Apple')
@@ -28,9 +28,9 @@ const locations = new Observable((observer) => {
   let watchId: number
   // Simple geolocation API check provides values to publish
   if ('geolocation' in navigator) {
-    watchId = navigator.geolocation.watchPosition((position: Position) => {
+    watchId = navigator.geolocation.watchPosition((position: GeolocationPosition) => {
       observer.next(position)
-    }, (error: PositionError) => {
+    }, (error: GeolocationPositionError) => {
       observer.error(error)
     })
   } else {
@@ -76,13 +76,17 @@ export class ObservablePracticeComponent implements OnInit, OnDestroy {
     myObservable.subscribe(myObserver)
 
     sequence.subscribe({
-      next(msg) { console.log(msg) },
-      complete() { console.log('Finished sequence') }
+      next(msg) {
+        console.log(msg)
+      },
+      complete() {
+        console.log('Finished sequence')
+      }
     })
 
 
-    const ages = of(21, 2, 3, 33, 4, 45, 32, 89, 64, 42, 22, 65, 23)
-    const agesTest = ages.pipe(
+    const ages: Observable<number> = of(21, 2, 3, 33, 4, 45, 32, 89, 64, 42, 22, 65, 23)
+    const agesTest: Observable<number> = ages.pipe(
       filter(x => x % 2 === 0)
       // reduce((acc, one) => acc + one, 0)
     )
