@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { from, interval, Observable, Subscription } from 'rxjs'
 import { take, map, skip } from 'rxjs/operators'
 
@@ -9,31 +9,47 @@ import { ObservablesService } from '../../providers'
 	templateUrl: './observables.component.html',
 	styleUrls: ['./observables.component.scss']
 })
-export class ObservablesComponent implements OnDestroy {
+export class ObservablesComponent implements OnInit, OnDestroy {
 	inputPlaceholder: string
+	count: number
+	incrementOutput: string[] = []
 	private _sub: Subscription
+	private _incrementSub: Subscription
 
 	constructor(
-		private ObservablesService: ObservablesService
+		private _observablesService: ObservablesService
 	) {
 		this.inputPlaceholder = 'abcdefghijklmnopqrstuvwxyz'
+		this.count = 0
+	}
+
+	ngOnInit() {
+		this._incrementSub = this._observablesService.incrementEmmiter.pipe(
+			map((value: number) => value % 2 === 0 ? `Even: ${value}` : `Odd: ${value}`)
+		).subscribe((value: string) => {
+			this.incrementOutput.push(value)
+		})
 	}
 
 	ngOnDestroy() {
-		if (this.ObservablesService.customIntervalSubscription) {
-			this.ObservablesService.customIntervalSubscription.unsubscribe()
+		if (this._observablesService.customIntervalSubscription) {
+			this._observablesService.customIntervalSubscription.unsubscribe()
 		}
-		if (this.ObservablesService.myObservable) {
-			this.ObservablesService.myObservable.unsubscribe()
+		if (this._incrementSub) {
+			this._incrementSub.unsubscribe()
 		}
+	}
+
+	increment() {
+		this._observablesService.incrementEmmiter.next(this.count++)
 	}
 
 	exploreObservables() {
-		this.ObservablesService.exploreObservables()
+		this._observablesService.exploreObservables()
 	}
 
 	startCustomObservable() {
-		this.ObservablesService.startCustomObservable()
+		this._observablesService.startCustomObservable()
 	}
 
 	processAlphabet(event) {

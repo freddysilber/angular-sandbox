@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Observable, Subscriber, Subscription, from } from 'rxjs'
+import { Observable, Subscriber, Subscription, from, Subject } from 'rxjs'
 import { map, filter } from 'rxjs/operators'
 
 type Stream =
@@ -12,7 +12,7 @@ type Stream =
 })
 export class ObservablesService {
 	customIntervalSubscription: Subscription
-	myObservable
+	incrementEmmiter: Subject<number> = new Subject<number>()
 	private _myStream: Stream[] = [
 		'Freddy',
 		'Silber',
@@ -20,7 +20,8 @@ export class ObservablesService {
 	]
 
 	exploreObservables() {
-		this.myObservable = from(this._myStream).pipe(
+		let greeting: string = 'Hi, Im '
+		const myObservable = from(this._myStream).pipe(
 			map((value) => {
 				if (typeof value === 'number') {
 					return 'and I am ' + value + ' years old.'
@@ -28,11 +29,7 @@ export class ObservablesService {
 				return value
 			})
 		)
-
-		let greeting: string = 'Hi, Im '
-		this.myObservable.subscribe((value: Stream) => {
-			greeting += value + ' '
-		}).unsubscribe()
+		myObservable.subscribe((value: Stream) => greeting += value + ' ').unsubscribe()
 		console.log(greeting)
 	}
 
