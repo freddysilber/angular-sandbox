@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, OnDestroy } from '@angular/core'
+import { interval, Subscription } from 'rxjs'
 
 import { ObservablesService } from '../../providers'
 
@@ -7,8 +8,9 @@ import { ObservablesService } from '../../providers'
 	templateUrl: './observables.component.html',
 	styleUrls: ['./observables.component.scss']
 })
-export class ObservablesComponent {
+export class ObservablesComponent implements OnDestroy {
 	inputPlaceholder: string
+	private sub: Subscription
 
 	constructor(
 		private ObservablesService: ObservablesService
@@ -16,11 +18,21 @@ export class ObservablesComponent {
 		this.inputPlaceholder = 'abcdefghijklmnopqrstuvwxyz'
 	}
 
-	sayHi() {
-		this.ObservablesService.sayHi()
+	ngOnDestroy() {
+		this.ObservablesService.customIntervalSubscription.unsubscribe()
+	}
+
+	startCustomObservable() {
+		this.ObservablesService.startCustomObservable()
 	}
 
 	processAlphabet(event) {
-		this.ObservablesService.processAlphabet(event.value)
+		this.sub = interval(100).subscribe(count => {
+			if (!event.value[count]) {
+				this.sub.unsubscribe()
+			} else {
+				console.log(event.value[count])
+			}
+		})
 	}
 }

@@ -21,7 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private loggingService: LoggingService, private userService: UserService) { }
 
   ngOnInit() {
-    this.activatedSub = this.userService.activatedEmitter.subscribe(didActivate => this.userActivated = didActivate)
+    this.activatedSub = this.userService.activatedEmitter.subscribe((didActivate: boolean) => this.userActivated = didActivate)
   }
 
   ngOnDestroy() {
