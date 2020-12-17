@@ -52,6 +52,14 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 		this._observablesService.startCustomObservable()
 	}
 
+	processIncrementOutput() {
+		const incrementOutput = from(this.incrementOutput).pipe(
+			take(3),
+			map((value: string) => `this is a keeper: ${value}`)
+		)
+		incrementOutput.subscribe((value: string) => console.log(value)).unsubscribe()
+	}
+
 	processAlphabet(event) {
 		const alphabetObservable: Observable<string> = from(event.value.split('')).pipe(
 			skip(1),
