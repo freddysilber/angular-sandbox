@@ -54,6 +54,7 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 
 	processIncrementOutput() {
 		const incrementOutput = from(this.incrementOutput).pipe(
+			skip(2),
 			take(3),
 			map((value: string) => `this is a keeper: ${value}`)
 		)
