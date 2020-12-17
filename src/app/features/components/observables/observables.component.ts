@@ -20,7 +20,16 @@ export class ObservablesComponent implements OnDestroy {
 	}
 
 	ngOnDestroy() {
-		this.ObservablesService.customIntervalSubscription.unsubscribe()
+		if (this.ObservablesService.customIntervalSubscription) {
+			this.ObservablesService.customIntervalSubscription.unsubscribe()
+		}
+		if (this.ObservablesService.myObservable) {
+			this.ObservablesService.myObservable.unsubscribe()
+		}
+	}
+
+	exploreObservables() {
+		this.ObservablesService.exploreObservables()
 	}
 
 	startCustomObservable() {

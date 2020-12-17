@@ -54,10 +54,11 @@ const locationsSubscription = locations.subscribe({
   }
 })
 
-// Stop listening for location after 10 seconds
+// Stop listening for location after 5 seconds
 setTimeout(() => {
   locationsSubscription.unsubscribe()
-}, 10000)
+  console.log('Geolocation unsubscribed!')
+}, 5000)
 // END GEOLOCATION OBSERVABLE
 @Component({
   selector: 'app-observable-practice',

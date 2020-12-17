@@ -1,14 +1,42 @@
 import { Injectable } from '@angular/core'
-import { Observable, Subscriber, Subscription } from 'rxjs'
+import { Observable, Subscriber, Subscription, from } from 'rxjs'
 import { map, filter } from 'rxjs/operators'
+
+type Stream =
+	| string
+	| number
+	| object
 
 @Injectable({
 	providedIn: 'root'
 })
 export class ObservablesService {
 	customIntervalSubscription: Subscription
+	myObservable
+	private _myStream: Stream[] = [
+		'Freddy',
+		'Silber',
+		21
+	]
 
-	public startCustomObservable() {
+	exploreObservables() {
+		this.myObservable = from(this._myStream).pipe(
+			map((value) => {
+				if (typeof value === 'number') {
+					return 'and I am ' + value + ' years old.'
+				}
+				return value
+			})
+		)
+
+		let greeting: string = 'Hi, Im '
+		this.myObservable.subscribe((value: Stream) => {
+			greeting += value + ' '
+		}).unsubscribe()
+		console.log(greeting)
+	}
+
+	startCustomObservable() {
 		const customIntervalObserver: Observable<number> = new Observable((observer: Subscriber<any>) => {
 			let count: number = 0
 			setInterval(() => {
