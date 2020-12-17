@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Observable, Subscriber, Subscription, from, Subject } from 'rxjs'
+import { Observable, Subscriber, Subscription, from, Subject, BehaviorSubject } from 'rxjs'
 import { map, filter } from 'rxjs/operators'
 
 type Stream =
@@ -14,7 +14,8 @@ const RETIREMENT = 65
 })
 export class ObservablesService {
 	customIntervalSubscription: Subscription
-	incrementEmmiter: Subject<number> = new Subject<number>()
+	incrementEmitter: BehaviorSubject<Stream> = new BehaviorSubject<Stream>('Incrementing numbers')
+	// incrementEmitter: Subject<number> = new Subject<number>()
 	private _myStream: Stream[] = [
 		'Freddy',
 		'Silber',
