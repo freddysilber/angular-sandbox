@@ -5,6 +5,7 @@ import { FeaturesRoutingModule } from './routing.module'
 
 import {
   FeatureDashboardComponent,
+  FeatureWelcomeComponent,
   ObservablesComponent
 } from './components'
 
@@ -12,7 +13,8 @@ import {
 @NgModule({
   declarations: [
     FeatureDashboardComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    FeatureWelcomeComponent
   ],
   imports: [
     CommonModule,
