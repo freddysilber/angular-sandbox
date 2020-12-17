@@ -28,7 +28,6 @@ export class ObservablesComponent implements OnDestroy {
 	}
 
 	processAlphabet(event) {
-		console.log(event.value.split(''))
 		const alphabetObservable: Observable<string> = from(event.value.split('')).pipe(
 			skip(1),
 			take(15),
