@@ -1,25 +1,26 @@
 <div class="slds-text-align_center slds-box slds-var-m-around_large slds-var-p-around_large">
 	<h1>
-		<ngl-icon iconName="utility:clock" variant="warning"></ngl-icon>
+		<ngl-icon
+			iconName="utility:clock"
+			variant="warning">
+		</ngl-icon>
 		{{timerValue}}
 	</h1>
 
-	<button
-			type="button"
-			nglButton
-			variant="brand"
-			(click)="startTimer()">
+	<button type="button"
+		nglButton
+		variant="brand"
+		(click)="startTimer()">
 		Start Timer
 	</button>
-	<button
-			type="button"
-			nglButton
-			variant="brand"
-			(click)="stopTimer()">
+	<button type="button"
+		nglButton
+		variant="brand"
+		(click)="stopTimer()">
 		Stop Timer
 	</button>
 
 	<div class="slds-grid">
-		<h1 *ngFor="let i of ages" class="slds-box">{{ i }}</h1>
+		<h1 *ngFor="let i of ages" class="slds-box">{{i}}</h1>
 	</div>
 </div>
