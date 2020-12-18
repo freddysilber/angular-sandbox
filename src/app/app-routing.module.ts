@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router'
 // Components
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { ServersComponent } from './servers/servers.component'
-import { ServerComponent } from './server/server.component'
-import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
+import { ServersComponent } from './components/servers/servers.component'
+import { ServerComponent } from './components/server/server.component'
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component'
 import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.component'
-import { SomethingNewComponent } from './something-new/something-new.component'
-import { ObservablePracticeComponent } from './observable-practice/observable-practice.component'
+import { SomethingNewComponent } from './components/something-new/something-new.component'
+import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component'
 
 const ROUTES: Routes = [
 	{ path: '', component: DashboardComponent },
