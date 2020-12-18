@@ -7,7 +7,7 @@ import { ServersComponent } from './components/servers/servers.component'
 import { ServerComponent } from './components/server/server.component'
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component'
 import { ExploringPipesComponent } from './components/exploring-pipes/exploring-pipes.component'
-import { SomethingNewComponent } from './components/something-new/something-new.component'
+import { AnimationsPracticeComponent } from './components/animations-practice/animations-practice.component'
 import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component'
 
 const ROUTES: Routes = [
@@ -24,7 +24,7 @@ const ROUTES: Routes = [
 	},
 	{ path: 'reactive-form', component: ReactiveFormComponent },
 	{ path: 'pipes', component: ExploringPipesComponent },
-	{ path: 'something-new', component: SomethingNewComponent },
+	{ path: 'animations', component: AnimationsPracticeComponent },
 	{ path: 'observable-practice', component: ObservablePracticeComponent },
 	{
 		path: 'features',

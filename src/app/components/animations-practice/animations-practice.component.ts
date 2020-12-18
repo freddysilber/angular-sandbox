@@ -2,9 +2,9 @@ import { Component } from '@angular/core'
 import { trigger, state, style, transition, animate } from '@angular/animations'
 
 @Component({
-  selector: 'app-something-new',
-  templateUrl: './something-new.component.html',
-  styleUrls: ['./something-new.component.scss'],
+  selector: 'app-animations-practice',
+  templateUrl: './animations-practice.component.html',
+  styleUrls: ['./animations-practice.component.scss'],
   animations: [
     trigger('divState', [
       state('start', style({
@@ -17,7 +17,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])
   ]
 })
-export class SomethingNewComponent {
+export class AnimationsPracticeComponent {
   animationState: string = 'start'
 
   constructor() { }

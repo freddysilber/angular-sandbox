@@ -19,7 +19,7 @@ export class NavigationComponent {
 		{ name: 'Game', path: '/game' },
 		{ name: 'Reactive Form', path: '/reactive-form' },
 		{ name: 'Pipes', path: '/pipes' },
-		{ name: 'Something New', path: '/something-new' },
+		{ name: 'Animations', path: '/animations' },
 		{ name: 'Observable Practice', path: '/observable-practice' },
 		{ name: 'Features', path: '/features' }
 	]

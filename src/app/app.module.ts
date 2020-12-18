@@ -14,7 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { UserComponent } from './components/user/user.component'
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component'
 import { ExploringPipesComponent } from './components/exploring-pipes/exploring-pipes.component'
-import { SomethingNewComponent } from './components/something-new/something-new.component'
+import { AnimationsPracticeComponent } from './components/animations-practice/animations-practice.component'
 import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component';
 import { NavigationComponent } from './components/navigation/navigation.component'
 // Pipes
@@ -46,7 +46,7 @@ import { NglModule } from 'ng-lightning'
     UserComponent,
     ReactiveFormComponent,
     ExploringPipesComponent,
-    SomethingNewComponent,
+    AnimationsPracticeComponent,
     ShortenPipe,
     FilterPipe,
     ObservablePracticeComponent,
