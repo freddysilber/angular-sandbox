@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 // Components
 import { AppComponent } from './app.component'
 import { ServerComponent } from './components/server/server.component'
@@ -50,11 +50,11 @@ import { NglModule } from 'ng-lightning'
     ShortenPipe,
     FilterPipe,
     ObservablePracticeComponent,
-    NavigationComponent,
-    // BrowserAnimationsModule
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
     NgbModule,

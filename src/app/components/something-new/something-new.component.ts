@@ -1,21 +1,21 @@
 import { Component } from '@angular/core'
-// import { trigger, state, style, transition, animate } from '@angular/animations'
+import { trigger, state, style, transition, animate } from '@angular/animations'
 
 @Component({
   selector: 'app-something-new',
   templateUrl: './something-new.component.html',
   styleUrls: ['./something-new.component.scss'],
-  // animations: [
-  //   trigger('divState', [
-  //     state('start', style({
-  //       backgroundColor: 'red'
-  //     })),
-  //     state('stop', style({
-  //       backgroundColor: 'blue'
-  //     })),
-  //     transition('start <=> stop', animate(500))
-  //   ])
-  // ]
+  animations: [
+    trigger('divState', [
+      state('start', style({
+        backgroundColor: 'red'
+      })),
+      state('stop', style({
+        backgroundColor: 'blue'
+      })),
+      transition('start <=> stop', animate(500))
+    ])
+  ]
 })
 export class SomethingNewComponent {
   animationState: string = 'start'
