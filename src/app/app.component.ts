@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, EventEmitter } from '@angular/core'
 import { LoggingService } from './services/loggingService.service'
 import { UserService } from './services/user.service'
 import { Subscription } from 'rxjs'
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.log.push(new Date())
   }
 
-  onWorldCreated(event): void {
+  onWorldCreated(event: EventEmitter<any>): void {
     console.log('You just opened up a whole other world!', event)
   }
 
