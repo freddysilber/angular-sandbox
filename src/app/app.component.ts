@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { LoggingService } from './loggingService.service'
-import { UserService } from './user.service'
+import { LoggingService } from './services/loggingService.service'
+import { UserService } from './services/user.service'
 import { Subscription } from 'rxjs'
 
 @Component({

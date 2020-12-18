@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { UtilService } from '../util.service'
+import { UtilService } from '../services/util.service'
 import { ActivatedRoute } from '@angular/router'
 
 const OFFLINE: string = 'offline'

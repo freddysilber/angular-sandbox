@@ -23,7 +23,7 @@ import { FilterPipe } from './pipes/filter.pipe'
 // Directives
 import { BasicHighlightDirective } from './directives/basic-highlight/basic-hightlight.directive'
 import { BetterHighlightDirective } from './directives/better-highlight/better-highlight.directive'
-import { UnlessDirective } from './unless.directive'
+import { UnlessDirective } from './directives/unless/unless.directive'
 // Modules
 import { AppRoutingModule } from './app-routing.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
