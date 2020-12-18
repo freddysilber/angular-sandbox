@@ -18,8 +18,8 @@ import { SomethingNewComponent } from './something-new/something-new.component'
 import { ObservablePracticeComponent } from './observable-practice/observable-practice.component';
 import { NavigationComponent } from './components/navigation/navigation.component'
 // Pipes
-import { ShortenPipe } from './shorten.pipe'
-import { FilterPipe } from './filter.pipe'
+import { ShortenPipe } from './pipes/shorten.pipe'
+import { FilterPipe } from './pipes/filter.pipe'
 // Directives
 import { BasicHighlightDirective } from './directives/basic-highlight/basic-hightlight.directive'
 import { BetterHighlightDirective } from './directives/better-highlight/better-highlight.directive'
