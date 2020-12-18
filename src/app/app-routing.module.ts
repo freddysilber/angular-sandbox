@@ -2,11 +2,11 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router'
 // Components
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { ServersComponent } from './components/servers/servers.component'
 import { ServerComponent } from './components/server/server.component'
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component'
-import { ExploringPipesComponent } from './exploring-pipes/exploring-pipes.component'
+import { ExploringPipesComponent } from './components/exploring-pipes/exploring-pipes.component'
 import { SomethingNewComponent } from './components/something-new/something-new.component'
 import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component'
 
@@ -28,7 +28,7 @@ const ROUTES: Routes = [
 	{ path: 'observable-practice', component: ObservablePracticeComponent },
 	{
 		path: 'features',
-		loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule)
+		loadChildren: () => import('./modules/features/features.module').then(m => m.FeaturesModule)
 	}
 ]
 
