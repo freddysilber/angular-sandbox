@@ -1,5 +1,5 @@
 <p>Animations Practice!</p>
 
-<div [@divState]="animationState" class="animationBox"></div>
+<div [@divState]="animationState" class="animationBox" (mouseover)="onAnimate()"></div>
 
 <button class="slds-button slds-button_brand" (click)="onAnimate()">Animate Me!</button>
