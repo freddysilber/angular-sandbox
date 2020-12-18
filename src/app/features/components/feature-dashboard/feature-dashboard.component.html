@@ -1,33 +1,27 @@
 <div class="slds-tabs_default">
 	<ul class="slds-tabs_default__nav" role="tablist">
-		<li class="slds-tabs_default__item slds-is-active" title="Item Two" role="presentation">
-			<!-- <a class="nav-link"
-				routerLinkActive="active"
-				[routerLinkActiveOptions]="{exact: true}"
-				routerLink="/features">
-				Home
-			</a> -->
-			<a class="slds-tabs_default__link"
-				routerLink="/features"
-				role="tab"
-				tabindex="-1"
-				aria-selected="false"
-				aria-controls="tab-default-2"
-				id="tab-default-2__item">
-				Home
-			</a>
-		</li>
-		<li *ngFor="let route of routes" class="slds-tabs_default__item" title="Item Two" role="presentation">
-			<a class="slds-tabs_default__link"
-				[routerLink]="route.path"
-				role="tab"
-				tabindex="-1"
-				aria-selected="false"
-				aria-controls="tab-default-2"
-				id="tab-default-2__item">
-				{{route.name}}
-			</a>
-		</li>
+		<a class="slds-tabs_default__link slds-tabs_default__item"
+			routerLink="/features"
+			routerLinkActive="slds-is-active"
+			[routerLinkActiveOptions]="{exact: true}"
+			role="tab"
+			tabindex="-1"
+			aria-selected="false"
+			aria-controls="tab-default-2"
+			id="tab-default-2__item">
+			Home
+		</a>
+		<a *ngFor="let route of routes"
+			class="slds-tabs_default__link slds-tabs_default__item"
+			[routerLink]="route.path"
+			routerLinkActive="slds-is-active"
+			role="tab"
+			tabindex="-1"
+			aria-selected="false"
+			aria-controls="tab-default-2"
+			id="tab-default-2__item">
+			{{route.name}}
+		</a>
 	</ul>
 </div>
 
