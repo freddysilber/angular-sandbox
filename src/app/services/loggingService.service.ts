@@ -8,11 +8,11 @@ import { Injectable } from '@angular/core'
 */
 @Injectable()
 export class LoggingService {
-	logAString(logItem: string) { // Console.logs a string
+	logAString(logItem: string): void { // Console.logs a string
 		console.log('LoggingService is logging.... ', logItem)
 	}
 
-	getSum(a: number, b: number) { // Adds two numbers
+	getSum(a: number, b: number): number { // Adds two numbers
 		return a + b
 	}
 }

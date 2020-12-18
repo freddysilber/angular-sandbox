@@ -26,7 +26,7 @@ export class ObservablesService {
 		return RETIREMENT - age
 	}
 
-	exploreObservables() {
+	exploreObservables(): void {
 		let greeting: string = 'Hi, Im '
 		const myObservable: Observable<Stream> = from(this._myStream).pipe(
 			map((value: Stream) => {
@@ -40,7 +40,7 @@ export class ObservablesService {
 		console.log(greeting)
 	}
 
-	startCustomObservable() {
+	startCustomObservable(): void {
 		const customIntervalObserver: Observable<number> = new Observable((observer: Subscriber<any>) => {
 			let count: number = 0
 			setInterval(() => {

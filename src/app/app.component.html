@@ -1,4 +1,5 @@
 <app-navigation></app-navigation>
+
 <router-outlet></router-outlet>
 
 <hr class="appComponentFooter" />
@@ -29,7 +30,7 @@
 			<input type="text" class="form-control" [(ngModel)]="username">
 			<p>{{username}}</p>
 			<button
-				class="slds-button slds-button_brand"
+				class="slds-button slds-button_outline-brand"
 				[disabled]="username === ''"
 				(click)="username = ''">
 				Reset User
@@ -50,7 +51,7 @@
 <!-- Ng switch is like a switch statement in JS -->
 <div class="featureSection">
 	<p>ngSwitch Example</p>
-	<button class="btn btn-secondary" (click)="runSwitch()">Peep the ngSwitch {{switchValue}}</button>
+	<button class="slds-button slds-button_outline-brand" (click)="runSwitch()">ngSwitch example {{switchValue}}</button>
 	<div [ngSwitch]="switchValue">
 		<p *ngSwitchCase="5">values is 5</p>
 		<p *ngSwitchCase="100">values is 100</p>
