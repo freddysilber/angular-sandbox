@@ -27,13 +27,14 @@
 			<li class="slds-context-bar__item slds-is-active">
 				<a
 					class="slds-context-bar__label-action"
-					routerLinkActive="active"
+					routerLinkActive="slds-is-active"
 					[routerLinkActiveOptions]="{exact: true}"
 					routerLink="/">
 					<span class="slds-truncate" title="Home">Home</span>
 				</a>
 			</li>
 			<li *ngFor="let route of routes" class="slds-context-bar__item slds-is-active">
+				<!-- routerLinkActive="slds-is-active" -->
 				<a
 					[routerLink]="route.path"
 					class="slds-context-bar__label-action"
