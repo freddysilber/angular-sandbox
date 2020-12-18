@@ -1,5 +1,24 @@
-<div class="warning">
-	<h1 class="slds-text-title_caps">Warning</h1>
-	<ng-content></ng-content>
-	<button class="slds-button slds-button_brand" (click)="handleWarningClick()">Warning Button {{timesClicked}}</button>
+<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+	<span class="slds-assistive-text">warning</span>
+	<span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Warning icon">
+		<svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+			<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+		</svg>
+	</span>
+	<h2>Warning!
+		<ng-content></ng-content>
+		<button
+			class="slds-button slds-button_brand"
+			(click)="handleWarningClick()">
+			Warning Button {{timesClicked}}
+		</button>
+	</h2>
+	<div class="slds-notify__close">
+		<button class="slds-button slds-button_icon slds-button_icon-small" title="Close">
+			<svg class="slds-button__icon" aria-hidden="true">
+				<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+			</svg>
+			<span class="slds-assistive-text">Close</span>
+		</button>
+	</div>
 </div>
