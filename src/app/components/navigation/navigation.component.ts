@@ -11,6 +11,8 @@ interface Paths {
 	styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
+	appTitle: string = 'Angular Sandbox'
+
 	public routes: Paths[] = [
 		{ name: 'Counter', path: '/counter' },
 		{ name: 'Servers', path: '/servers' },

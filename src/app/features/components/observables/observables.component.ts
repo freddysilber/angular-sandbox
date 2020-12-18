@@ -10,9 +10,9 @@ import { ObservablesService } from '../../providers'
 	styleUrls: ['./observables.component.scss']
 })
 export class ObservablesComponent implements OnInit, OnDestroy {
-	inputPlaceholder: string
 	count: number
 	incrementOutput: string[] = []
+	inputPlaceholder: string
 	private _sub: Subscription
 	private _incrementSub: Subscription
 
@@ -23,7 +23,7 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 		this.count = 0
 	}
 
-	ngOnInit() {
+	ngOnInit(): void {
 		this._incrementSub = this._observablesService.incrementEmitter$.pipe(
 			map((value: number) => {
 				if (typeof value === 'number') {
@@ -36,7 +36,7 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 		})
 	}
 
-	ngOnDestroy() {
+	ngOnDestroy(): void {
 		if (this._observablesService.customIntervalSubscription) {
 			this._observablesService.customIntervalSubscription.unsubscribe()
 		}
@@ -45,19 +45,19 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	increment() {
+	increment(): void {
 		this._observablesService.incrementEmitter$.next(this.count++)
 	}
 
-	exploreObservables() {
+	exploreObservables(): void {
 		this._observablesService.exploreObservables()
 	}
 
-	startCustomObservable() {
+	startCustomObservable(): void {
 		this._observablesService.startCustomObservable()
 	}
 
-	processIncrementOutput() {
+	processIncrementOutput(): void {
 		const incrementOutput = from(this.incrementOutput).pipe(
 			skip(2),
 			take(3),
@@ -66,7 +66,7 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 		incrementOutput.subscribe((value: string) => console.log(value)).unsubscribe()
 	}
 
-	processAlphabet(event) {
+	processAlphabet(event): void {
 		const alphabetObservable: Observable<string> = from(event.value.split('')).pipe(
 			skip(1),
 			take(15),
