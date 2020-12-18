@@ -21,7 +21,8 @@
 			<button nglButton variant="brand" (click)="onToggleDisplay()">Display Details</button>
 			<p *ngIf="showSecret">Secret Password = booboo chicken</p>
 			<p *appUnless="!showSecret">Secret Password = booboo chicken</p>
-			<div *ngFor="let logItem of log; let i = index"
+			<div
+				*ngFor="let logItem of log; let i = index"
 				[ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
 				[ngClass]="{'white-text' : i >= 4}">{{logItem}}</div>
 			<label>Username</label>
