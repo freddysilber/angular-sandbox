@@ -17,7 +17,7 @@ export class RiskMatrixComponent {
 		console.log(this._riskMatrixService.data)
 		this._riskMatrixService.data.forEach(record => {
 			console.log(record)
-			this.riskMatrix[_riskMatrixService.matrixDimensions - record.probability][record.impact] = this.riskMatrix[_riskMatrixService.matrixDimensions - record.probability][record.impact - 1] + 1
+			this.riskMatrix[_riskMatrixService.matrixDimensions - record.probability][record.impact - 1] = this.riskMatrix[_riskMatrixService.matrixDimensions - record.probability][record.impact - 1] + 1
 			// riskMatrix[MATRIX_DIMENSIONS - probability][impact - 1] = riskMatrix[MATRIX_DIMENSIONS - probability][impact - 1] + 1
 		})
 	}
