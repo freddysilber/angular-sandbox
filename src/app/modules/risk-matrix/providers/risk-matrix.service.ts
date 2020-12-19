@@ -13,7 +13,8 @@ export class RiskMatrixService {
 
 	protected _RISK_MATRIX_DIMENSIONS: number = 5
 	protected _sampleData: Ticket[] = [
-		{ name: 'First', impact: 1, probability: 4 },
+		{ name: 'OneOne', impact: 1, probability: 1 },
+		{ name: 'Name', impact: 1, probability: 4 },
 		{ name: 'First', impact: 1, probability: 4 },
 		{ name: 'Second', impact: 2, probability: 5 },
 		{ name: 'Third', impact: 5, probability: 3 },
