@@ -9,6 +9,7 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { ExploringPipesComponent } from './components/exploring-pipes/exploring-pipes.component'
 import { AnimationsPracticeComponent } from './components/animations-practice/animations-practice.component'
 import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component'
+// import { RiskMatrixComponent } from './modules/risk-matrix/components'
 
 const ROUTES: Routes = [
 	{ path: '', component: DashboardComponent },
@@ -29,6 +30,11 @@ const ROUTES: Routes = [
 	{
 		path: 'features',
 		loadChildren: () => import('./modules/features/features.module').then(m => m.FeaturesModule)
+	},
+	{
+		path: 'riskMatrix',
+		// component: RiskMatrixComponent
+		loadChildren: () => import('./modules/risk-matrix/risk-matrix.module').then(m => m.RiskMatrixModule)
 	}
 ]
 

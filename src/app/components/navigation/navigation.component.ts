@@ -21,7 +21,8 @@ export class NavigationComponent {
 		{ name: 'Pipes', path: '/pipes' },
 		{ name: 'Animations', path: '/animations' },
 		{ name: 'Observable Practice', path: '/observable-practice' },
-		{ name: 'Features', path: '/features' }
+		{ name: 'Features', path: '/features' },
+		{ name: 'Risk Matrix', path: '/riskMatrix' }
 	]
 
 	constructor() { }
