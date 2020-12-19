@@ -1,14 +1,29 @@
 import { Injectable } from '@angular/core'
 
+interface Ticket {
+	name: string,
+	impact: number,
+	probability: number
+}
+
 @Injectable({
 	providedIn: 'root'
 })
 export class RiskMatrixService {
 
-	private _RISK_MATRIX_DIMENSIONS: number = 5
+	protected _RISK_MATRIX_DIMENSIONS: number = 5
+	protected _sampleData: Ticket[] = [
+		{ name: 'First', impact: 1, probability: 4 },
+		{ name: 'Second', impact: 2, probability: 5 },
+		{ name: 'Third', impact: 5, probability: 3 },
+		{ name: 'Fourth', impact: 4, probability: 1 }
+	]
 
-	get matrixDimension() {
+	get matrixDimensions(): number {
 		return this._RISK_MATRIX_DIMENSIONS
 	}
 
+	get data(): Ticket[] {
+		return this._sampleData
+	}
 }
