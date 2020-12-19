@@ -1,9 +1,11 @@
 <div class="slds-align_absolute-center">
 	<div class="slds-m-around_medium">
-		<div class="slds-grid row" *ngFor="let row of riskMatrix">
+		<div class="slds-grid row" *ngFor="let row of riskMatrix; index as r">
 			<risk-cell
-				*ngFor="let cell of row"
-				[value]=cell>
+				*ngFor="let cell of row; index as c"
+				[value]=cell
+				[row]=r
+				[column]=c>
 			</risk-cell>
 		</div>
 	</div>
