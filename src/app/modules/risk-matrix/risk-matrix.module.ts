@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
-import { RiskMatrixComponent } from './components'
+import {
+	RiskMatrixComponent,
+	RiskCellComponent
+} from './components'
 
 import { RiskMatrixRoutingModule } from './routing.module'
 
+const COMPONENTS = [
+	RiskCellComponent,
+	RiskMatrixComponent
+]
+
 @NgModule({
-	declarations: [
-		RiskMatrixComponent
-	],
+	declarations: COMPONENTS,
 	imports: [
 		CommonModule,
 		RiskMatrixRoutingModule
