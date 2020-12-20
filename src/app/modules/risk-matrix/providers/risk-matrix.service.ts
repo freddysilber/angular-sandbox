@@ -6,12 +6,16 @@ export interface Ticket {
 	probability: number
 }
 
+export type Matrix = number[][]
+
+const RISK_MATRIX_DIMENSIONS = 5
+
 @Injectable({
 	providedIn: 'root'
 })
 export class RiskMatrixService {
 
-	private _RISK_MATRIX_DIMENSIONS: number = 5
+	private _RISK_MATRIX_DIMENSIONS: number = RISK_MATRIX_DIMENSIONS
 	private _sampleData: Ticket[] = [
 		{ name: 'OneOne', impact: 1, probability: 1 },
 		{ name: 'Name', impact: 1, probability: 4 },
@@ -31,11 +35,11 @@ export class RiskMatrixService {
 		return this._sampleData
 	}
 
-	newMatrix(dimensions: number): number[][] {
+	newMatrix(dimensions: number): Matrix {
 		return [...Array(dimensions)].map(() => Array(dimensions).fill(0))
 	}
 
-	populateMatrixData(dimensions: number, matrix: number[][], tickets: Ticket[]): number[][] {
+	populateMatrixData(dimensions: number, matrix: Matrix, tickets: Ticket[]): Matrix {
 		tickets.forEach((ticket: Ticket) => {
 			const { impact, probability } = ticket
 			matrix[dimensions - probability][impact - 1] = matrix[dimensions - probability][impact - 1] + 1

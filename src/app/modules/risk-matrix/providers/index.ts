@@ -1,1 +1,1 @@
-export { RiskMatrixService, Ticket } from './risk-matrix.service'
+export { RiskMatrixService, Ticket, Matrix } from './risk-matrix.service'

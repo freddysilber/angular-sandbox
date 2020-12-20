@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import { RiskMatrixService } from '../../providers'
+import { RiskMatrixService, Matrix } from '../../providers'
 
 @Component({
 	selector: 'app-risk-matrix',
@@ -9,7 +9,7 @@ import { RiskMatrixService } from '../../providers'
 })
 export class RiskMatrixComponent {
 
-	riskMatrix: number[][] = this._riskMatrixService.newMatrix(this._riskMatrixService.matrixDimensions)
+	riskMatrix: Matrix = this._riskMatrixService.newMatrix(this._riskMatrixService.matrixDimensions)
 
 	constructor(private _riskMatrixService: RiskMatrixService) {
 		this.riskMatrix = this._riskMatrixService.populateMatrixData(this._riskMatrixService.matrixDimensions, this.riskMatrix, this._riskMatrixService.data)
