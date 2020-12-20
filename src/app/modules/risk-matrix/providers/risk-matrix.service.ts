@@ -11,8 +11,8 @@ export interface Ticket {
 })
 export class RiskMatrixService {
 
-	protected _RISK_MATRIX_DIMENSIONS: number = 5
-	protected _sampleData: Ticket[] = [
+	private _RISK_MATRIX_DIMENSIONS: number = 5
+	private _sampleData: Ticket[] = [
 		{ name: 'OneOne', impact: 1, probability: 1 },
 		{ name: 'Name', impact: 1, probability: 4 },
 		{ name: 'First', impact: 1, probability: 4 },
@@ -29,5 +29,9 @@ export class RiskMatrixService {
 
 	get data(): Ticket[] {
 		return this._sampleData
+	}
+
+	filterRiskTable(impact: number, probability: number): void {
+		console.log('FILTER TABLE!', impact, probability)
 	}
 }

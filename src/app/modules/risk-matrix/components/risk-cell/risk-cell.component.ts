@@ -1,4 +1,6 @@
-import { Component, Input, Output } from '@angular/core'
+import { Component, Input } from '@angular/core'
+
+import { RiskMatrixService } from '../../providers'
 
 @Component({
 	selector: 'risk-cell',
@@ -9,6 +11,8 @@ export class RiskCellComponent {
 	@Input('value') value: number
 	@Input('row') row: number
 	@Input('column') column: number
+
+	constructor(private _riskMatrixService: RiskMatrixService) { }
 
 	get isGreen(): boolean {
 		if (this.column === 0 && this.row >= 2 && this.row <= 4
@@ -29,6 +33,7 @@ export class RiskCellComponent {
 	}
 
 	selectCell(event): void {
+		this._riskMatrixService.filterRiskTable(this.column, this.row)
 		let tar = event.target
 		while (!tar.classList.contains('cell')) {
 			tar = tar.parentElement

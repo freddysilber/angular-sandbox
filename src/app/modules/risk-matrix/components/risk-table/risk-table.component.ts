@@ -1,7 +1,6 @@
 import { Component } from '@angular/core'
 
 import { RiskMatrixService } from '../../providers'
-import { Ticket } from '../../providers'
 
 @Component({
 	selector: 'risk-table',
@@ -10,10 +9,7 @@ import { Ticket } from '../../providers'
 })
 export class RiskTableComponent {
 	public _columnHeaders: string[] = ['name', 'impact', 'probability']
-	// private _data: Ticket[]
 
 	constructor(public _riskMatrixService: RiskMatrixService) {
-		// this._data = _riskMatrixService.data
-		// console.log(this._data)
 	}
 }
