@@ -19,6 +19,9 @@ export class RiskMatrixComponent {
 	}
 
 	handleToggle(event): void {
+		if (!event.target.checked) {
+			this._riskMatrixService.selectedEmitter.next(false)
+		}
 		this._riskMatrixService.canSelectMultiple = event.target.checked
 	}
 }
