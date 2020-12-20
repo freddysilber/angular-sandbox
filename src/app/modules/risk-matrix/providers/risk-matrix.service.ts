@@ -19,7 +19,8 @@ export class RiskMatrixService {
 		{ name: 'Second', impact: 2, probability: 5 },
 		{ name: 'Third', impact: 5, probability: 3 },
 		{ name: 'Fourth', impact: 4, probability: 1 },
-		{ name: 'Center', impact: 3, probability: 3 }
+		{ name: 'Center', impact: 3, probability: 3 },
+		{ name: 'FiveFive', impact: 5, probability: 5 },
 	]
 
 	get matrixDimensions(): number {

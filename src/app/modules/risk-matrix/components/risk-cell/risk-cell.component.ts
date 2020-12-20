@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, Output } from '@angular/core'
 
 @Component({
 	selector: 'risk-cell',
@@ -26,5 +26,13 @@ export class RiskCellComponent {
 			return true
 		}
 		return false
+	}
+
+	selectCell(event): void {
+		let tar = event.target
+		while (!tar.classList.contains('cell')) {
+			tar = tar.parentElement
+		}
+		tar.style.border = '1px solid black'
 	}
 }

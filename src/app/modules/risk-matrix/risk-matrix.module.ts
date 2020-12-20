@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common'
 
 import {
 	RiskMatrixComponent,
-	RiskCellComponent
+	RiskCellComponent,
+	RiskTableComponent
 } from './components'
 
 import { RiskMatrixRoutingModule } from './routing.module'
 
 const COMPONENTS = [
 	RiskCellComponent,
-	RiskMatrixComponent
+	RiskMatrixComponent,
+	RiskTableComponent
 ]
 
 @NgModule({
