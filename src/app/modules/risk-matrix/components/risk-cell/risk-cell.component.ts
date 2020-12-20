@@ -12,6 +12,8 @@ export class RiskCellComponent {
 	@Input('row') row: number
 	@Input('column') column: number
 
+	isSelected: boolean = false
+
 	constructor(private _riskMatrixService: RiskMatrixService) { }
 
 	get isGreen(): boolean {
@@ -32,12 +34,12 @@ export class RiskCellComponent {
 		return false
 	}
 
-	selectCell(event): void {
+	get selected(): boolean {
+		return this.isSelected
+	}
+
+	selectCell(): void {
+		this.isSelected = !this.isSelected
 		this._riskMatrixService.filterRiskTable(this.column, this.row)
-		let tar = event.target
-		while (!tar.classList.contains('cell')) {
-			tar = tar.parentElement
-		}
-		tar.style.border = '1px solid black'
 	}
 }

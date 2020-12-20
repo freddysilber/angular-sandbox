@@ -1,3 +1,15 @@
+<div class="slds-form-element slds-m-top_small">
+	<label class="slds-checkbox_toggle slds-grid">
+		<span class="slds-form-element__label slds-m-bottom_none">Select Multiple</span>
+		<input type="checkbox" name="selectMultiple" value="selectMultiple" aria-describedby="selectMultiple" checked="" (change)="handleToggle($event)" />
+		<span id="selectMultiple" class="slds-checkbox_faux_container" aria-live="assertive">
+			<span class="slds-checkbox_faux"></span>
+			<span class="slds-checkbox_on">Enabled</span>
+			<span class="slds-checkbox_off">Disabled</span>
+		</span>
+	</label>
+</div>
+
 <div class="slds-align_absolute-center">
 	<h1 class="probabilityLabel slds-text-title_caps"><em>Probability</em><span>&#10236;</span></h1>
 	<div class="slds-m-around_medium">

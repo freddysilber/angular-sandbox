@@ -12,9 +12,12 @@ div.cell {
 	height:$size;
 	text-align: center;
 	margin: .1rem;
-	border: 1px solid darkgray;
 	border-radius: 5px;
 	transition: .3s;
+}
+div.cell:hover {
+	opacity: .75;
+	cursor: pointer;
 }
 .green {
 	background-color: $green;
@@ -25,7 +28,6 @@ div.cell {
 .red {
 	background-color: $red;
 }
-div.cell:hover {
-	opacity: .75;
-	cursor: pointer;
+.cellBorder {
+	border: 1px solid black;
 }

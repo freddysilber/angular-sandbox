@@ -31,6 +31,18 @@ export class RiskMatrixService {
 		return this._sampleData
 	}
 
+	newMatrix(dimensions: number): number[][] {
+		return [...Array(dimensions)].map(() => Array(dimensions).fill(0))
+	}
+
+	populateMatrixData(dimensions: number, matrix: number[][], tickets: Ticket[]): number[][] {
+		tickets.forEach((ticket: Ticket) => {
+			const { impact, probability } = ticket
+			matrix[dimensions - probability][impact - 1] = matrix[dimensions - probability][impact - 1] + 1
+		})
+		return matrix
+	}
+
 	filterRiskTable(impact: number, probability: number): void {
 		console.log('FILTER TABLE!', impact, probability)
 	}

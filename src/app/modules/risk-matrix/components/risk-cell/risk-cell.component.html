@@ -1,6 +1,6 @@
 <div
 	class="cell"
-	[ngClass]="{ 'green' : isGreen, 'yellow' : !isGreen && !isRed, 'red' : isRed }"
-	(click)="selectCell($event)">
+	[ngClass]="{ 'green' : isGreen, 'yellow' : !isGreen && !isRed, 'red' : isRed, 'cellBorder' : selected }"
+	(click)="selectCell()">
 	<div *ngIf="value">{{value}}</div>
 </div>
