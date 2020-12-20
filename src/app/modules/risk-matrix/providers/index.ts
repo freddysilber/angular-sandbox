@@ -1,0 +1,1 @@
+export { RiskMatrixService, Ticket } from './risk-matrix.service'

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import { RiskMatrixService } from '../../providers/risk-matrix.service'
+import { Ticket, RiskMatrixService } from '../../providers'
 
 @Component({
 	selector: 'app-risk-matrix',
@@ -13,8 +13,9 @@ export class RiskMatrixComponent {
 
 	constructor(private _riskMatrixService: RiskMatrixService) {
 		this.riskMatrix = [...Array(_riskMatrixService.matrixDimensions)].map(() => Array(_riskMatrixService.matrixDimensions).fill(0))
-		this._riskMatrixService.data.forEach(record => {
-			this.riskMatrix[_riskMatrixService.matrixDimensions - record.probability][record.impact - 1] = this.riskMatrix[_riskMatrixService.matrixDimensions - record.probability][record.impact - 1] + 1
+		this._riskMatrixService.data.forEach((record: Ticket) => {
+			const { impact, probability } = record
+			this.riskMatrix[_riskMatrixService.matrixDimensions - probability][impact - 1] = this.riskMatrix[_riskMatrixService.matrixDimensions - probability][impact - 1] + 1
 		})
 	}
 }

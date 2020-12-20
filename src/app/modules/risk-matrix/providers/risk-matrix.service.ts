@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 
-interface Ticket {
+export interface Ticket {
 	name: string,
 	impact: number,
 	probability: number
