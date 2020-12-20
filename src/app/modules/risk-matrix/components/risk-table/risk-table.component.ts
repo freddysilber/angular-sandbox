@@ -9,10 +9,11 @@ import { Ticket } from '../../providers'
 	styleUrls: ['./risk-table.component.scss']
 })
 export class RiskTableComponent {
-	private data: Ticket[]
+	public _columnHeaders: string[] = ['name', 'impact', 'probability']
+	// private _data: Ticket[]
 
-	constructor(private _riskMatrixService: RiskMatrixService) {
-		this.data = _riskMatrixService.data
-		console.log(this.data)
+	constructor(public _riskMatrixService: RiskMatrixService) {
+		// this._data = _riskMatrixService.data
+		// console.log(this._data)
 	}
 }
