@@ -10,6 +10,8 @@ import { Matrix } from '../../models'
 })
 export class RiskMatrixComponent {
 
+	selectMultiple: boolean = false
+
 	riskMatrix: Matrix = this._riskMatrixService.newMatrix(this._riskMatrixService.matrixDimensions)
 
 	constructor(private _riskMatrixService: RiskMatrixService) {
@@ -17,6 +19,6 @@ export class RiskMatrixComponent {
 	}
 
 	handleToggle(event): void {
-		console.log(event.target.checked)
+		this._riskMatrixService.canSelectMultiple = event.target.checked
 	}
 }

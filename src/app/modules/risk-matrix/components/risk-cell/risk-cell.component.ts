@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnDestroy, OnInit } from '@angular/core'
+import { Subscription } from 'rxjs'
 
 import { RiskMatrixService } from '../../providers'
 
@@ -7,12 +8,13 @@ import { RiskMatrixService } from '../../providers'
 	templateUrl: './risk-cell.component.html',
 	styleUrls: ['./risk-cell.component.scss']
 })
-export class RiskCellComponent {
+export class RiskCellComponent implements OnInit, OnDestroy {
 	@Input('value') value: number
 	@Input('row') row: number
 	@Input('column') column: number
 
 	isSelected: boolean = false
+	selectedEmitterSub: Subscription
 
 	constructor(private _riskMatrixService: RiskMatrixService) { }
 
@@ -28,8 +30,25 @@ export class RiskCellComponent {
 		return this.isSelected
 	}
 
+	ngOnInit(): void {
+		this.selectedEmitterSub = this._riskMatrixService.selectedEmitter.subscribe((value: boolean) => {
+			if (this.isSelected) {
+				this.isSelected = value
+			}
+		})
+	}
+
+	ngOnDestroy(): void {
+		this.selectedEmitterSub.unsubscribe()
+	}
+
 	selectCell(): void {
-		this.isSelected = !this.isSelected
+		if (this._riskMatrixService.canSelectMultiple) {
+			this.isSelected = !this.isSelected
+		} else {
+			this._riskMatrixService.selectedEmitter.next(false)
+			this.isSelected = true
+		}
 		this._riskMatrixService.filterRiskTable(this.column, this.row)
 	}
 }

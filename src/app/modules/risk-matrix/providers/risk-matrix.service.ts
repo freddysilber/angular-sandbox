@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core'
+import { BehaviorSubject } from 'rxjs'
 
 import { Ticket, Matrix } from '../models'
 
@@ -8,6 +9,9 @@ const RISK_MATRIX_DIMENSIONS = 5
 	providedIn: 'root'
 })
 export class RiskMatrixService {
+
+	canSelectMultiple: boolean = false
+	selectedEmitter = new BehaviorSubject<boolean>(false)
 
 	private _RISK_MATRIX_DIMENSIONS: number = RISK_MATRIX_DIMENSIONS
 	private _sampleData: Ticket[] = [
