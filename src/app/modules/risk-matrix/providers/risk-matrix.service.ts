@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core'
 
-export interface Ticket {
-	name: string,
-	impact: number,
-	probability: number
-}
-
-export type Matrix = number[][]
+import { Ticket, Matrix } from '../models'
 
 const RISK_MATRIX_DIMENSIONS = 5
 

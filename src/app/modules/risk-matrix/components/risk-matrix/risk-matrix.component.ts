@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 
-import { RiskMatrixService, Matrix } from '../../providers'
+import { RiskMatrixService } from '../../providers'
+import { Matrix } from '../../models'
 
 @Component({
 	selector: 'app-risk-matrix',
