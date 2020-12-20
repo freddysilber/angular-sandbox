@@ -17,21 +17,11 @@ export class RiskCellComponent {
 	constructor(private _riskMatrixService: RiskMatrixService) { }
 
 	get isGreen(): boolean {
-		if (this.column === 0 && this.row >= 2 && this.row <= 4
-			|| this.row === 4 && this.column <= 2
-			|| this.row === 3 && this.column === 1) {
-			return true
-		}
-		return false
+		return this.column === 0 && this.row >= 2 && this.row <= 4 || this.row === 4 && this.column <= 2 || this.row === 3 && this.column === 1
 	}
 
 	get isRed(): boolean {
-		if (this.row === 0 && this.column >= 2 && this.column <= 4
-			|| this.row === 1 && this.column >= 3 && this.column <= 4
-			|| this.row === 2 && this.column === 4) {
-			return true
-		}
-		return false
+		return this.row === 0 && this.column >= 2 && this.column <= 4 || this.row === 1 && this.column >= 3 && this.column <= 4 || this.row === 2 && this.column === 4
 	}
 
 	get selected(): boolean {
