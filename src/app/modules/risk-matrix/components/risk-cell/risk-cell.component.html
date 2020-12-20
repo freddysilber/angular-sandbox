@@ -1,6 +1,3 @@
-<div class="cell" [ngClass]="{ 'green' : isGreen}">
+<div class="cell" [ngClass]="{ 'green' : isGreen, 'yellow' : !isGreen && !isRed, 'red' : isRed }">
 	<div *ngIf="value">{{value}}</div>
 </div>
-
-row - {{row}}
-column - {{column}}
