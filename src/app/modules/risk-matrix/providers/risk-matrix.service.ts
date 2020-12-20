@@ -11,7 +11,7 @@ const RISK_MATRIX_DIMENSIONS = 5
 export class RiskMatrixService {
 
 	canSelectMultiple: boolean = false
-	selectedEmitter = new BehaviorSubject<boolean>(false)
+	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
 	private _RISK_MATRIX_DIMENSIONS: number = RISK_MATRIX_DIMENSIONS
 	private _sampleData: Ticket[] = [
