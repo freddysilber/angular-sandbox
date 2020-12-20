@@ -1,10 +1,15 @@
+$size: 4rem;
+$green: #49BEB7;
+$yellow: #FACF5A;
+$red: #FF5959;
+
 div.cell {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 1.2em;
-	width: 3rem;
-	height: 3rem;
+	width:$size;
+	height:$size;
 	text-align: center;
 	margin: .1rem;
 	border: 1px solid darkgray;
@@ -12,13 +17,13 @@ div.cell {
 	transition: .3s;
 }
 .green {
-	background-color: #49beb7;
+	background-color: $green;
 }
 .yellow {
-	background-color: #facf5a;
+	background-color: $yellow;
 }
 .red {
-	background-color: #ff5959;
+	background-color: $red;
 }
 div.cell:hover {
 	opacity: .75;
