@@ -1,5 +1,7 @@
 import { Component } from '@angular/core'
+
 import { RiskMatrixService } from '../../providers'
+import { Ticket } from '../../providers'
 
 @Component({
 	selector: 'risk-table',
@@ -7,7 +9,10 @@ import { RiskMatrixService } from '../../providers'
 	styleUrls: ['./risk-table.component.scss']
 })
 export class RiskTableComponent {
+	private data: Ticket[]
+
 	constructor(private _riskMatrixService: RiskMatrixService) {
-		console.log(_riskMatrixService)
+		this.data = _riskMatrixService.data
+		console.log(this.data)
 	}
 }
