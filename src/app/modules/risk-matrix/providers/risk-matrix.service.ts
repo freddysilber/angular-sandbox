@@ -47,4 +47,12 @@ export class RiskMatrixService {
 	filterRiskTable(impact: number, probability: number): void {
 		console.log('FILTER TABLE!', impact, probability)
 	}
+
+	// private getProbabilityValue(value: number) {
+	// 	return this.rangeOfNumbers(1, MATRIX_DIMENSIONS).reverse().indexOf(+formatId(tar.parentElement.id) + 1) + 1 // probability value
+	// }
+
+	// private rangeOfNumbers(start, end) {
+	// 	start === end ? [start] : [...this.rangeOfNumbers(start, end - 1), end]
+	// }
 }
