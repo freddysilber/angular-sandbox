@@ -50,11 +50,11 @@ export class RiskMatrixService {
 		})
 	}
 
-	findProbability(rowIndex: number) {
+	findProbability(rowIndex: number): number {
 		return this._rangeOfNumbers(1, this._matrixDimensions).reverse().indexOf(rowIndex + 1) + 1
 	}
 
-	private _rangeOfNumbers(start, end): number[] {
+	private _rangeOfNumbers(start: number, end: number): number[] {
 		return start === end ? [start] : [...this._rangeOfNumbers(start, end - 1), end]
 	}
 }
