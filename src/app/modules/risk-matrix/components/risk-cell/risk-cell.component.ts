@@ -14,7 +14,7 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 	@Input('column') column: number
 
 	isSelected: boolean = false
-	selectedEmitterSub: Subscription
+	private _selectedEmitterSub: Subscription
 
 	constructor(private _riskMatrixService: RiskMatrixService) { }
 
@@ -31,7 +31,7 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		this.selectedEmitterSub = this._riskMatrixService.selectedEmitter.subscribe((value: boolean) => {
+		this._selectedEmitterSub = this._riskMatrixService.selectedEmitter.subscribe((value: boolean) => {
 			if (this.isSelected) {
 				this.isSelected = value
 			}
@@ -39,7 +39,7 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.selectedEmitterSub.unsubscribe()
+		this._selectedEmitterSub.unsubscribe()
 	}
 
 	selectCell(): void {
