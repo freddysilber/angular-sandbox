@@ -43,6 +43,10 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 	}
 
 	selectCell(): void {
+		if (!this.value) {
+			return
+		}
+
 		if (this._riskMatrixService.canSelectMultiple) {
 			this.isSelected = !this.isSelected
 		} else {
