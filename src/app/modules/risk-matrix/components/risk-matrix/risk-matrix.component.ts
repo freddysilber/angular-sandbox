@@ -11,12 +11,9 @@ import { Matrix } from '../../models'
 export class RiskMatrixComponent {
 
 	selectMultiple: boolean = false
+	riskMatrix: Matrix = this._riskMatrixService.buildMatrix()
 
-	riskMatrix: Matrix = this._riskMatrixService.newMatrix(this._riskMatrixService.matrixDimensions)
-
-	constructor(private _riskMatrixService: RiskMatrixService) {
-		this.riskMatrix = this._riskMatrixService.populateMatrixData(this._riskMatrixService.matrixDimensions, this.riskMatrix, this._riskMatrixService.data)
-	}
+	constructor(private _riskMatrixService: RiskMatrixService) { }
 
 	handleToggle(event): void {
 		if (!event.target.checked) {

@@ -3,7 +3,6 @@ import { BehaviorSubject } from 'rxjs'
 
 import { Ticket, Matrix } from '../models'
 
-const RISK_MATRIX_DIMENSIONS: number = 5
 const DATA: Ticket[] = [
 	{ name: 'OneOne', impact: 1, probability: 1 },
 	{ name: 'Name', impact: 1, probability: 4 },
@@ -19,7 +18,7 @@ const DATA: Ticket[] = [
 	providedIn: 'root'
 })
 export class RiskMatrixService {
-	private _RISK_MATRIX_DIMENSIONS: number = RISK_MATRIX_DIMENSIONS
+	private _RISK_MATRIX_DIMENSIONS: number = 5
 	private _sampleData: Ticket[] = DATA
 	canSelectMultiple: boolean = false
 	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
@@ -32,14 +31,11 @@ export class RiskMatrixService {
 		return this._sampleData
 	}
 
-	newMatrix(dimensions: number): Matrix {
-		return [...Array(dimensions)].map(() => Array(dimensions).fill(0))
-	}
-
-	populateMatrixData(dimensions: number, matrix: Matrix, tickets: Ticket[]): Matrix {
-		tickets.forEach((ticket: Ticket) => {
+	buildMatrix(): Matrix {
+		const matrix: Matrix = [...Array(this._RISK_MATRIX_DIMENSIONS)].map(() => Array(this._RISK_MATRIX_DIMENSIONS).fill(0))
+		this.data.forEach((ticket: Ticket) => {
 			const { impact, probability } = ticket
-			matrix[dimensions - probability][impact - 1] = matrix[dimensions - probability][impact - 1] + 1
+			matrix[this._RISK_MATRIX_DIMENSIONS - probability][impact - 1] = matrix[this._RISK_MATRIX_DIMENSIONS - probability][impact - 1] + 1
 		})
 		return matrix
 	}
