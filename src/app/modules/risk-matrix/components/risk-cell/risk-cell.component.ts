@@ -50,9 +50,18 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 		if (this._riskMatrixService.canSelectMultiple) {
 			this.isSelected = !this.isSelected
 		} else {
-			this._riskMatrixService.selectedEmitter.next(false)
-			this.isSelected = true
+			if (!this.isSelected) {
+				this._riskMatrixService.selectedEmitter.next(false)
+				this.isSelected = true
+			} else {
+				this.isSelected = !this.isSelected
+			}
 		}
-		this._riskMatrixService.filterRiskTable(this.column + 1, this._riskMatrixService.findProbability(this.row))
+
+		if (this.isSelected) {
+			this._riskMatrixService.filterRiskTable(this.column + 1, this._riskMatrixService.findProbability(this.row))
+		} else {
+			this._riskMatrixService.resetData()
+		}
 	}
 }

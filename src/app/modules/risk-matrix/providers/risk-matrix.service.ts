@@ -9,6 +9,10 @@ const DATA: Ticket[] = [
 	{ name: 'Name', impact: 1, probability: 4 },
 	{ name: 'First', impact: 1, probability: 4 },
 	{ name: 'First', impact: 1, probability: 5 },
+	{ name: 'ThreeFour', impact: 3, probability: 4 },
+	{ name: 'ThreeFour', impact: 3, probability: 4 },
+	{ name: 'ThreeFour', impact: 3, probability: 4 },
+	{ name: 'ThreeFour', impact: 3, probability: 4 },
 	{ name: 'Second', impact: 2, probability: 5 },
 	{ name: 'Third', impact: 5, probability: 3 },
 	{ name: 'Fourth', impact: 4, probability: 1 },
@@ -26,6 +30,8 @@ export class RiskMatrixService {
 	private _sampleData: Ticket[] = DATA
 	canSelectMultiple: boolean = false
 	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+	// selectedImpacts: number[] = []
+	// selectedProbabilities: number[] = []
 
 	get matrixDimensions(): number {
 		return this._matrixDimensions
@@ -48,6 +54,10 @@ export class RiskMatrixService {
 		this._sampleData = DATA.filter((ticket: Ticket) => {
 			return ticket.impact === impact && ticket.probability === probability
 		})
+	}
+
+	resetData(): void {
+		this._sampleData = DATA
 	}
 
 	findProbability(rowIndex: number): number {
