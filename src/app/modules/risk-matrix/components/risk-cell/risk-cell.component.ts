@@ -49,6 +49,6 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 			this._riskMatrixService.selectedEmitter.next(false)
 			this.isSelected = true
 		}
-		this._riskMatrixService.filterRiskTable(this.column, this.row)
+		this._riskMatrixService.filterRiskTable(this.column + 1, this._riskMatrixService.findProbability(this.row))
 	}
 }
