@@ -52,8 +52,7 @@ export class RiskMatrixService {
 
 	filterRiskTable(impact: number, probability: number): void {
 		this._sampleData = DATA.filter((ticket: Ticket) => {
-			const { impact, probability } = ticket
-			return impact === impact && probability === probability
+			return ticket.impact === impact && ticket.probability === probability
 		})
 	}
 
