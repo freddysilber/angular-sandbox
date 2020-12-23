@@ -8,8 +8,8 @@ div.cell {
 	justify-content: center;
 	align-items: center;
 	font-size: 1.2em;
-	width:$size;
-	height:$size;
+	width: $size;
+	height: $size;
 	text-align: center;
 	margin: .1rem;
 	border-radius: 5px;
@@ -19,15 +19,15 @@ div.cell:hover {
 	opacity: .75;
 	cursor: pointer;
 }
-.green {
+div.green {
 	background-color: $green;
 }
-.yellow {
+div.yellow {
 	background-color: $yellow;
 }
-.red {
+div.red {
 	background-color: $red;
 }
-.cellBorder {
+div.cellBorder {
 	border: 1px solid black;
 }
