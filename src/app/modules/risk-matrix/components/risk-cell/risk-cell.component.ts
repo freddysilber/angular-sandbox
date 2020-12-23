@@ -30,6 +30,14 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 		return this.isSelected
 	}
 
+	get impact(): number {
+		return this.column + 1
+	}
+
+	get probability(): number {
+		return this._riskMatrixService.findProbability(this.row)
+	}
+
 	ngOnInit(): void {
 		this._selectedEmitterSub = this._riskMatrixService.selectedEmitter.subscribe((value: boolean) => {
 			if (this.isSelected) {
@@ -58,10 +66,20 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 			}
 		}
 
-		if (this.isSelected) {
-			this._riskMatrixService.filterRiskTable(this.column + 1, this._riskMatrixService.findProbability(this.row))
-		} else {
+		if (this.isSelected && !this._riskMatrixService.canSelectMultiple) {
+			this._riskMatrixService.filterRiskTable(this.impact, this.probability)
+		} else if (this.isSelected && this._riskMatrixService.canSelectMultiple) {
+			this._riskMatrixService.selectedImpacts.add(this.impact)
+			this._riskMatrixService.selectedProbabilities.add(this.probability)
+			this._riskMatrixService.filterRiskTableMultiSelect()
+		}
+
+		if (!this.isSelected && !this._riskMatrixService.canSelectMultiple) {
 			this._riskMatrixService.resetData()
+		} else if (!this.isSelected && this._riskMatrixService.canSelectMultiple) {
+			this._riskMatrixService.selectedImpacts.delete(this.impact)
+			this._riskMatrixService.selectedProbabilities.delete(this.probability)
+			this._riskMatrixService.filterRiskTableMultiSelect()
 		}
 	}
 }

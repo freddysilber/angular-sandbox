@@ -30,8 +30,8 @@ export class RiskMatrixService {
 	private _sampleData: Ticket[] = DATA
 	canSelectMultiple: boolean = false
 	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
-	// selectedImpacts: number[] = []
-	// selectedProbabilities: number[] = []
+	selectedImpacts: Set<number> = new Set()
+	selectedProbabilities: Set<number> = new Set()
 
 	get matrixDimensions(): number {
 		return this._matrixDimensions
@@ -54,6 +54,16 @@ export class RiskMatrixService {
 		this._sampleData = DATA.filter((ticket: Ticket) => {
 			return ticket.impact === impact && ticket.probability === probability
 		})
+	}
+
+	filterRiskTableMultiSelect(): void {
+		if (this.selectedImpacts.size === 0 && this.selectedProbabilities.size === 0) {
+			this.resetData()
+		} else {
+			this._sampleData = DATA.filter((ticket: Ticket) => {
+				return this.selectedImpacts.has(ticket.impact) && this.selectedProbabilities.has(ticket.probability)
+			})
+		}
 	}
 
 	resetData(): void {
