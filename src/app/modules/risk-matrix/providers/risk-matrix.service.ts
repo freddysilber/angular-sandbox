@@ -33,17 +33,6 @@ export class RiskMatrixService {
 	selectedImpacts: Set<number> = new Set()
 	selectedProbabilities: Set<number> = new Set()
 
-	constructor() {
-		// Linked List example (to implement for multi select filtering??)
-		let node1 = new ListNode(1)
-		let node2 = new ListNode(2)
-		let node3 = new ListNode(3)
-		node1.next = node2
-		node2.next = node3
-		const list = new LinkedList(node1)
-		console.log(list)
-	}
-
 	get matrixDimensions(): number {
 		return this._matrixDimensions
 	}
@@ -87,19 +76,5 @@ export class RiskMatrixService {
 
 	private _rangeOfNumbers(start: number, end: number): number[] {
 		return start === end ? [start] : [...this._rangeOfNumbers(start, end - 1), end]
-	}
-}
-
-class LinkedList {
-	constructor(public head = null) {
-		this.head = head
-	}
-}
-
-class ListNode {
-	constructor(public data, public next = null) {
-		this.data = data
-		// this.next = null
-		this.next = next
 	}
 }
