@@ -9,7 +9,7 @@ import { DATA } from '../providers/risk-matrix-data'
 })
 export class RiskMatrixService {
 	private _matrixDimensions: number = 5
-	private _sampleData: Ticket[] = DATA
+	private _data: Ticket[] = DATA
 	canSelectMultiple: boolean = false
 	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 	selectedImpacts: Set<number> = new Set()
@@ -20,7 +20,7 @@ export class RiskMatrixService {
 	}
 
 	get data(): Ticket[] {
-		return this._sampleData
+		return this._data
 	}
 
 	buildMatrix(): Matrix {
@@ -33,7 +33,7 @@ export class RiskMatrixService {
 	}
 
 	filterRiskTable(impact: number, probability: number): void {
-		this._sampleData = DATA.filter((ticket: Ticket) => {
+		this._data = DATA.filter((ticket: Ticket) => {
 			return ticket.impact === impact && ticket.probability === probability
 		})
 	}
@@ -42,14 +42,14 @@ export class RiskMatrixService {
 		if (this.selectedImpacts.size === 0 && this.selectedProbabilities.size === 0) {
 			this.resetData()
 		} else {
-			this._sampleData = DATA.filter((ticket: Ticket) => {
+			this._data = DATA.filter((ticket: Ticket) => {
 				return this.selectedImpacts.has(ticket.impact) && this.selectedProbabilities.has(ticket.probability)
 			})
 		}
 	}
 
 	resetData(): void {
-		this._sampleData = DATA
+		this._data = DATA
 	}
 
 	findProbability(rowIndex: number): number {
