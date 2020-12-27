@@ -4,6 +4,10 @@ import { BehaviorSubject } from 'rxjs'
 import { Ticket, Matrix } from '../models'
 import { DATA } from '../providers/risk-matrix-data'
 
+interface Filters {
+	impact: number[],
+	probability: number[]
+}
 @Injectable({
 	providedIn: 'root'
 })
@@ -12,8 +16,10 @@ export class RiskMatrixService {
 	private _data: Ticket[] = DATA
 	canSelectMultiple: boolean = false
 	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
-	selectedImpacts: Set<number> = new Set()
-	selectedProbabilities: Set<number> = new Set()
+	private _filters: Filters = {
+		impact: [],
+		probability: []
+	}
 
 	get matrixDimensions(): number {
 		return this._matrixDimensions
@@ -21,6 +27,16 @@ export class RiskMatrixService {
 
 	get data(): Ticket[] {
 		return this._data
+	}
+
+	handleFilterState(impact: number, probability: number, isAdding: boolean) {
+		if (isAdding) {
+			this._filters.impact.push(impact)
+			this._filters.probability.push(probability)
+		} else {
+			this._filters.impact.splice(this._filters.impact.indexOf(impact), 1)
+			this._filters.probability.splice(this._filters.probability.indexOf(probability), 1)
+		}
 	}
 
 	buildMatrix(): Matrix {
@@ -39,11 +55,11 @@ export class RiskMatrixService {
 	}
 
 	filterRiskTableMultiSelect(): void {
-		if (this.selectedImpacts.size === 0 && this.selectedProbabilities.size === 0) {
+		if (this._filters.impact.length === 0 && this._filters.probability.length === 0) {
 			this.resetData()
 		} else {
 			this._data = DATA.filter((ticket: Ticket) => {
-				return this.selectedImpacts.has(ticket.impact) && this.selectedProbabilities.has(ticket.probability)
+				return this._filters.impact.includes(ticket.impact) && this._filters.probability.includes(ticket.probability)
 			})
 		}
 	}
