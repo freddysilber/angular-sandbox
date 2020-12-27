@@ -14,12 +14,12 @@ interface Filters {
 export class RiskMatrixService {
 	private _matrixDimensions: number = 5
 	private _data: Ticket[] = DATA
-	canSelectMultiple: boolean = false
-	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 	private _filters: Filters = {
 		impact: [],
 		probability: []
 	}
+	canSelectMultiple: boolean = false
+	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
 	get matrixDimensions(): number {
 		return this._matrixDimensions
