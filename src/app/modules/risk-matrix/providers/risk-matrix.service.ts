@@ -10,10 +10,7 @@ import { DATA } from '../providers/risk-matrix-data'
 export class RiskMatrixService {
 	private _matrixDimensions: number = 5
 	private _data: Ticket[] = DATA
-	private _filters: Filters = {
-		impact: [],
-		probability: []
-	}
+	private _filters: Filters = { impact: [], probability: [] }
 	canSelectMultiple: boolean = false
 	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
