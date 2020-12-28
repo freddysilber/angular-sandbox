@@ -8,7 +8,6 @@ import { DATA, fetchData } from '../providers/risk-matrix-data'
 	providedIn: 'root'
 })
 export class RiskMatrixService {
-	private _baseData: Ticket[]
 	private _matrixDimensions: number = 5
 	private _data: Ticket[] = DATA
 	private _filters: Filters = { impact: [], probability: [] }
@@ -16,7 +15,9 @@ export class RiskMatrixService {
 	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
 	constructor() {
-		this.getData()
+		fetchData().subscribe((ticket: Ticket) => {
+			this._data.push(ticket)
+		}).unsubscribe()
 	}
 
 	get matrixDimensions(): number {
@@ -25,12 +26,6 @@ export class RiskMatrixService {
 
 	get data(): Ticket[] {
 		return this._data
-		// return this._baseData
-	}
-
-	async getData() {
-		this._baseData = <Ticket[]>await fetchData()
-		console.log('data', this._baseData)
 	}
 
 	handleFilterState(impact: number, probability: number, isNewFilter: boolean) {
@@ -57,7 +52,6 @@ export class RiskMatrixService {
 	}
 
 	filterRiskTable(impact: number, probability: number): void {
-		// this._baseData = DATA.filter((ticket: Ticket) => {
 		this._data = DATA.filter((ticket: Ticket) => {
 			return ticket.impact === impact && ticket.probability === probability
 		})
@@ -67,7 +61,6 @@ export class RiskMatrixService {
 		if (this._filters.impact.length === 0 && this._filters.probability.length === 0) {
 			this.resetData()
 		} else {
-			// this._baseData = DATA.filter((ticket: Ticket) => {
 			this._data = DATA.filter((ticket: Ticket) => {
 				return this._filters.impact.includes(ticket.impact) && this._filters.probability.includes(ticket.probability)
 			})
@@ -75,7 +68,6 @@ export class RiskMatrixService {
 	}
 
 	resetData(): void {
-		// this._baseData = DATA
 		this._data = DATA
 	}
 
