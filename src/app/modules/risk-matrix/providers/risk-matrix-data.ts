@@ -18,3 +18,13 @@ export const DATA: Ticket[] = [
 	{ name: 'FiveFive', impact: 5, probability: 5 },
 	{ name: 'FiveFive', impact: 5, probability: 5 },
 ]
+
+const REQUEST_TIME: number = 3000
+
+export function fetchData() {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(DATA)
+		}, REQUEST_TIME)
+	})
+}
