@@ -1,7 +1,13 @@
-<div class="slds-form-element slds-m-top_small">
+<div class="slds-form-element slds-m-top_small slds-m-left_small">
 	<label class="slds-checkbox_toggle slds-grid">
-		<span class="slds-form-element__label slds-m-bottom_none">Select Multiple</span>
-		<input type="checkbox" name="selectMultiple" value="selectMultiple" aria-describedby="selectMultiple" [checked]="selectMultiple" (change)="handleToggle($event)" />
+		<span class="slds-form-element__label slds-m-bottom_none">Select Multiple Cells</span>
+		<input
+			type="checkbox"
+			name="selectMultiple"
+			value="selectMultiple"
+			aria-describedby="selectMultiple"
+			[checked]="selectMultiple"
+			(change)="handleToggle($event)" />
 		<span id="selectMultiple" class="slds-checkbox_faux_container" aria-live="assertive">
 			<span class="slds-checkbox_faux"></span>
 			<span class="slds-checkbox_on">Enabled</span>
