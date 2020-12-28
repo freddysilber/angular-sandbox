@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 
-import { Ticket, Matrix } from '../models'
+import { Ticket, Matrix, Filters } from '../models'
 import { DATA } from '../providers/risk-matrix-data'
 
-interface Filters {
-	impact: number[],
-	probability: number[]
-}
 @Injectable({
 	providedIn: 'root'
 })
@@ -29,14 +25,18 @@ export class RiskMatrixService {
 		return this._data
 	}
 
-	handleFilterState(impact: number, probability: number, isAdding: boolean) {
-		if (isAdding) {
+	handleFilterState(impact: number, probability: number, isNewFilter: boolean) {
+		if (isNewFilter) {
 			this._filters.impact.push(impact)
 			this._filters.probability.push(probability)
 		} else {
 			this._filters.impact.splice(this._filters.impact.indexOf(impact), 1)
 			this._filters.probability.splice(this._filters.probability.indexOf(probability), 1)
 		}
+	}
+
+	resetFilters() {
+		this._filters = { impact: [], probability: [] }
 	}
 
 	buildMatrix(): Matrix {
