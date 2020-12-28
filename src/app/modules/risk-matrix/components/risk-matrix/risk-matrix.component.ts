@@ -16,10 +16,10 @@ export class RiskMatrixComponent {
 	constructor(private _riskMatrixService: RiskMatrixService) { }
 
 	handleToggle(event): void {
+		this._riskMatrixService.selectedEmitter.next(false)
 		if (!event.target.checked) {
-			this._riskMatrixService.selectedEmitter.next(false)
 			this._riskMatrixService.resetData()
 		}
-		this._riskMatrixService.canSelectMultiple = !this._riskMatrixService.canSelectMultiple
+		this._riskMatrixService.canSelectMultiple = event.target.checked
 	}
 }
