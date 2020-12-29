@@ -9,7 +9,7 @@ import { DATA, fetchData } from '../providers/risk-matrix-data'
 })
 export class RiskMatrixService {
 	private _matrixDimensions: number = 5
-	private _data: Ticket[] = DATA
+	private _data: Ticket[] = []
 	private _filters: Filters = { impact: [], probability: [] }
 	canSelectMultiple: boolean = false
 	selectedEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
@@ -28,7 +28,7 @@ export class RiskMatrixService {
 		return this._data
 	}
 
-	handleFilterState(impact: number, probability: number, isNewFilter: boolean) {
+	handleFilterState(impact: number, probability: number, isNewFilter: boolean): void {
 		if (isNewFilter) {
 			this._filters.impact.push(impact)
 			this._filters.probability.push(probability)
@@ -38,7 +38,7 @@ export class RiskMatrixService {
 		}
 	}
 
-	resetFilters() {
+	resetFilters(): void {
 		this._filters = { impact: [], probability: [] }
 	}
 

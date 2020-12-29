@@ -1,4 +1,4 @@
-import { from } from 'rxjs'
+import { from, Observable } from 'rxjs'
 
 import { Ticket } from '../models'
 
@@ -23,7 +23,7 @@ export const DATA: Ticket[] = [
 
 // const REQUEST_TIME: number = 3000
 
-export function fetchData() {
+export function fetchData(): Observable<Ticket> {
 	return from(DATA)
 }
 
