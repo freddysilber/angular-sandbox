@@ -13,7 +13,7 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 	@Input('row') row: number
 	@Input('column') column: number
 
-	isSelected: boolean = false
+	private _isSelected: boolean = false
 	private _selectedEmitterSub: Subscription
 
 	constructor(private _riskMatrixService: RiskMatrixService) { }
@@ -27,7 +27,7 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 	}
 
 	get selected(): boolean {
-		return this.isSelected
+		return this._isSelected
 	}
 
 	get impact(): number {
@@ -40,8 +40,8 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 
 	ngOnInit(): void {
 		this._selectedEmitterSub = this._riskMatrixService.selectedEmitter.subscribe((value: boolean) => {
-			if (this.isSelected) {
-				this.isSelected = value
+			if (this._isSelected) {
+				this._isSelected = value
 			}
 		})
 	}
@@ -56,26 +56,26 @@ export class RiskCellComponent implements OnInit, OnDestroy {
 		}
 
 		if (this._riskMatrixService.canSelectMultiple) {
-			this.isSelected = !this.isSelected
+			this._isSelected = !this._isSelected
 		} else {
-			if (!this.isSelected) {
+			if (!this._isSelected) {
 				this._riskMatrixService.selectedEmitter.next(false)
-				this.isSelected = true
+				this._isSelected = true
 			} else {
-				this.isSelected = !this.isSelected
+				this._isSelected = !this._isSelected
 			}
 		}
 
-		if (this.isSelected && !this._riskMatrixService.canSelectMultiple) {
+		if (this._isSelected && !this._riskMatrixService.canSelectMultiple) {
 			this._riskMatrixService.filterRiskTable(this.impact, this.probability)
-		} else if (this.isSelected && this._riskMatrixService.canSelectMultiple) {
+		} else if (this._isSelected && this._riskMatrixService.canSelectMultiple) {
 			this._riskMatrixService.handleFilterState(this.impact, this.probability, true)
 			this._riskMatrixService.filterRiskTableMultiSelect()
 		}
 
-		if (!this.isSelected && !this._riskMatrixService.canSelectMultiple) {
+		if (!this._isSelected && !this._riskMatrixService.canSelectMultiple) {
 			this._riskMatrixService.resetData()
-		} else if (!this.isSelected && this._riskMatrixService.canSelectMultiple) {
+		} else if (!this._isSelected && this._riskMatrixService.canSelectMultiple) {
 			this._riskMatrixService.handleFilterState(this.impact, this.probability, false)
 			this._riskMatrixService.filterRiskTableMultiSelect()
 		}
