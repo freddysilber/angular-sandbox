@@ -1,1 +1,41 @@
 <h1 class="slds-text-title_caps">{{ title }}</h1>
+<div
+	class="demo-only"
+	style="width:320px"
+>
+	<nav
+		class="slds-nav-vertical"
+		aria-label="Sub page"
+	>
+		<div class="slds-nav-vertical__section">
+			<h2
+				id="entity-header"
+				class="slds-nav-vertical__title"
+			>
+				Sections
+			</h2>
+			<ul aria-describedby="entity-header">
+				<li class="slds-nav-vertical__item slds-is-active">
+					<a
+						routerLink="sizer"
+						class="slds-nav-vertical__action"
+						aria-current="true"
+					>
+						Sizer
+					</a>
+				</li>
+				<li class="slds-nav-vertical__item">
+					<a
+						href="#"
+						class="slds-nav-vertical__action"
+					>
+						Create Some Shizzz...
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+<sizer [(size)]="fontSizePx"></sizer>
+<div [style.font-size.px]="fontSizePx">Resizable Text</div>
+<router-outlet></router-outlet>

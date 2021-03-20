@@ -6,4 +6,5 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
 	public readonly title: string = 'SIZER'
+	public fontSizePx: number = 16;
 }
