@@ -22,7 +22,8 @@ export class NavigationComponent {
 		{ name: 'Animations', path: '/animations' },
 		{ name: 'Observable Practice', path: '/observable-practice' },
 		{ name: 'Features', path: '/features' },
-		{ name: 'Risk Matrix', path: '/riskMatrix' }
+		{ name: 'Risk Matrix', path: '/riskMatrix' },
+		{ name: 'Two Way Data Binding', path: '/two-way-data-binding' }
 	]
 
 	constructor() { }

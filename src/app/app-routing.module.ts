@@ -33,8 +33,11 @@ const ROUTES: Routes = [
 	},
 	{
 		path: 'riskMatrix',
-		// component: RiskMatrixComponent
 		loadChildren: () => import('./modules/risk-matrix/risk-matrix.module').then(m => m.RiskMatrixModule)
+	},
+	{
+		path: 'two-way-data-binding',
+		loadChildren: () => import('./modules/two-way-data-binding/two-way-data-binding.module').then(m => m.TwoWayDataBindingModule)
 	}
 ]
 
