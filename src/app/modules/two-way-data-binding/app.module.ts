@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core'
 
-import { SizerComponent } from './components/sizer/sizer.component'
+import { AppComponent } from './app/app.component'
 import { TwoWayDataBindingRoutingModule } from './routing.module'
 
 const COMPONENTS = [
-	SizerComponent
+	AppComponent
 ]
 
 @NgModule({
@@ -13,4 +13,4 @@ const COMPONENTS = [
 		TwoWayDataBindingRoutingModule
 	]
 })
-export class TwoWayDataBindingModule { }
+export class AppModule { }

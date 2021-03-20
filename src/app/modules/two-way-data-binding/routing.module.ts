@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
-import { SizerComponent } from './components/sizer/sizer.component'
+import { AppComponent } from './app/app.component'
 
 const ROUTES: Routes = [
 	{
 		path: '',
-		component: SizerComponent
+		component: AppComponent
 	}
 ]
 

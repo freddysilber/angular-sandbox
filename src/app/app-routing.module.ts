@@ -9,7 +9,6 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { ExploringPipesComponent } from './components/exploring-pipes/exploring-pipes.component'
 import { AnimationsPracticeComponent } from './components/animations-practice/animations-practice.component'
 import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component'
-// import { RiskMatrixComponent } from './modules/risk-matrix/components'
 
 const ROUTES: Routes = [
 	{ path: '', component: DashboardComponent },
@@ -37,14 +36,13 @@ const ROUTES: Routes = [
 	},
 	{
 		path: 'two-way-data-binding',
-		loadChildren: () => import('./modules/two-way-data-binding/two-way-data-binding.module').then(m => m.TwoWayDataBindingModule)
+		loadChildren: () => import('./modules/two-way-data-binding/app.module').then(m => m.AppModule)
 	}
 ]
 
 @NgModule({
 	imports: [
 		RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' })
-		// RouterModule.forRoot(appRoutes, { useHash: true })
 	],
 	exports: [
 		RouterModule

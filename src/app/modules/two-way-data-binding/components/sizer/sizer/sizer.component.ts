@@ -4,4 +4,6 @@ import { Component } from '@angular/core'
 	selector: 'sizer',
 	templateUrl: 'sizer.component.html'
 })
-export class SizerComponent { }
+export class SizerComponent {
+
+}
