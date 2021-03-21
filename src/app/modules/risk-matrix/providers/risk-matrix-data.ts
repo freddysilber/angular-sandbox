@@ -21,16 +21,6 @@ export const DATA: Ticket[] = [
 	{ name: 'FiveFive', impact: 5, probability: 5 },
 ]
 
-// const REQUEST_TIME: number = 3000
-
 export function fetchData(): Observable<Ticket> {
 	return from(DATA)
 }
-
-// export function fetchData() {
-// 	return new Promise((resolve) => {
-// 		setTimeout(() => {
-// 			resolve(DATA)
-// 		}, REQUEST_TIME)
-// 	})
-// }
