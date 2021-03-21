@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, ContentChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core'
 
 @Component({
   selector: 'app-success-alert',

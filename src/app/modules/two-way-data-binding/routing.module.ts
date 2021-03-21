@@ -11,15 +11,15 @@ const ROUTES: Routes = [
 		children: [
 			{
 				path: 'sizer',
-				component: SizerComponent
+				component: SizerComponent,
+			},
+			{
+				path: '',
+				redirectTo: 'sizer',
+				pathMatch: 'full'
 			}
 		],
 	},
-	{
-		path: '',
-		redirectTo: 'sizer',
-		pathMatch: 'full'
-	}
 ]
 
 @NgModule({
