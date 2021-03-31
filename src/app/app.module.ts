@@ -24,7 +24,8 @@ import { FilterPipe } from './pipes/filter.pipe'
 import {
   BasicHighlightDirective,
   BetterHighlightDirective,
-  UnlessDirective
+  UnlessDirective,
+  ComponentPlaceholderDirective
 } from './directives'
 // Modules
 import { AppRoutingModule } from './app-routing.module'
@@ -42,6 +43,7 @@ import { NglModule } from 'ng-lightning'
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
+    ComponentPlaceholderDirective,
     DashboardComponent,
     UserComponent,
     ReactiveFormComponent,

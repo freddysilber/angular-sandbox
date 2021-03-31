@@ -4,6 +4,14 @@
 
 <hr class="appComponentFooter" />
 
+<button
+	class="slds-button slds-button_outline-brand"
+	(click)="createComponent()"
+>
+	Create Dynamic Alert Component
+</button>
+<ng-template componentPlaceholder></ng-template>
+
 <app-user></app-user>
 <p *ngIf="userActivated">Activated!</p>
 
@@ -15,32 +23,44 @@
 </app-warning-alert>
 
 <app-success-alert></app-success-alert>
-
+<br>
 <app-success-alert>
-	<p>new new</p>
-	<app-navigation></app-navigation>
+	<p>projected text</p>
 </app-success-alert>
 
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<button nglButton variant="brand" (click)="onToggleDisplay()">Display Details</button>
+			<button
+				nglButton
+				variant="brand"
+				(click)="onToggleDisplay()"
+			>Display Details</button>
 			<p *ngIf="showSecret">Secret Password = booboo chicken</p>
 			<p *appUnless="!showSecret">Secret Password = booboo chicken</p>
 			<div
 				*ngFor="let logItem of log; let i = index"
 				[ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
-				[ngClass]="{'white-text' : i >= 4}">{{logItem}}</div>
+				[ngClass]="{'white-text' : i >= 4}"
+				>{{logItem}}</div>
 			<label>Username</label>
-			<input type="text" class="form-control" [(ngModel)]="username">
+			<input
+				type="text"
+				class="form-control"
+				[(ngModel)]="username"
+			>
 			<p>{{username}}</p>
 			<button
 				class="slds-button slds-button_outline-brand"
 				[disabled]="username === ''"
-				(click)="username = ''">
+				(click)="username = ''"
+			>
 				Reset User
 			</button>
-			<input type="text" [(ngModel)]="name">
+			<input
+				type="text"
+				[(ngModel)]="name"
+			>
 			<p>{{name | uppercase}}</p>
 		</div>
 	</div>
@@ -49,13 +69,19 @@
 <div class="featureSection">
 	<p>Directive Examples</p>
 	<p appBasicHighlight>Style me with basic directive</p>
-	<p [appBetterHighlight]="'red'" defaultColor="yellow">This element is using the 'appBetterHighlight' directive</p>
+	<p
+		[appBetterHighlight]="'red'"
+		defaultColor="yellow"
+	>This element is using the 'appBetterHighlight' directive</p>
 	<p appBetterHighlight>This element is using the 'appBetterHighlight' directive</p>
 </div>
 <!-- Ng switch is like a switch statement in JS -->
 <div class="featureSection">
 	<p>ngSwitch Example</p>
-	<button class="slds-button slds-button_outline-brand" (click)="runSwitch()">ngSwitch example {{switchValue}}</button>
+	<button
+		class="slds-button slds-button_outline-brand"
+		(click)="runSwitch()"
+	>ngSwitch example {{switchValue}}</button>
 	<div [ngSwitch]="switchValue">
 		<p *ngSwitchCase="5">values is 5</p>
 		<p *ngSwitchCase="100">values is 100</p>
