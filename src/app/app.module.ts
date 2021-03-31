@@ -17,6 +17,7 @@ import { ExploringPipesComponent } from './components/exploring-pipes/exploring-
 import { AnimationsPracticeComponent } from './components/animations-practice/animations-practice.component'
 import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component';
 import { NavigationComponent } from './components/navigation/navigation.component'
+import { ScssExploreComponent } from './components/scss-explore/scss-explore.component'
 // Pipes
 import { ShortenPipe } from './pipes/shorten.pipe'
 import { FilterPipe } from './pipes/filter.pipe'
@@ -49,6 +50,7 @@ import { NglModule } from 'ng-lightning'
     ReactiveFormComponent,
     ExploringPipesComponent,
     AnimationsPracticeComponent,
+    ScssExploreComponent,
     ShortenPipe,
     FilterPipe,
     ObservablePracticeComponent,
