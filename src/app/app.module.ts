@@ -71,7 +71,7 @@ import { NglModule } from 'ng-lightning'
   providers: [
     {
       provide: MESSAGING_TOKEN,
-      useValue: new MessagingService
+      useClass: MessagingService
       // useValue: 'Hello World - Messaging Token value'
       // useValue: messaging
     }
