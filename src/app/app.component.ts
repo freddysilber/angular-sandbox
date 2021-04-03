@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, EventEmitter, ViewChild, ComponentFactoryResolver } from '@angular/core'
+import { Component, OnInit, OnDestroy, EventEmitter, ViewChild, ComponentFactoryResolver, Inject } from '@angular/core'
 import { Subscription } from 'rxjs'
 
 import { LoggingService } from './services/loggingService.service'
@@ -6,6 +6,7 @@ import { UserService } from './services/user.service'
 import { ComponentPlaceholderDirective } from './directives'
 import { SuccessAlertComponent } from './components/alerts/success-alert/success-alert.component'
 import { WarningAlertComponent } from './components/alerts/warning-alert/warning-alert.component'
+import { MESSAGING_TOKEN, Message, MessagingService } from './services/messaging.service'
 
 @Component({
   selector: 'app-root',
@@ -22,14 +23,21 @@ export class AppComponent implements OnInit, OnDestroy {
   public log: Date[] = [] // Collection of timestamps
   public switchValue: number = 0 // look at template for ngSwitch useage. This is the value to switch on in the template
   public userActivated: boolean = false // This value comes from a 'Subject' in the user.service.ts
+  public welcomeMessage: string
 
   private _activatedSub: Subscription
 
   constructor(
+    @Inject(MESSAGING_TOKEN) private messagingToken: MessagingService,
     private loggingService: LoggingService,
     private userService: UserService,
     private componentFactoryResolver: ComponentFactoryResolver
-  ) { }
+  ) {
+    console.log(this.messagingToken)
+    console.log(this.messagingToken.messageName)
+    // console.log(this.messagingToken.sendMessage('You have a new message!'))
+    this.welcomeMessage = this.messagingToken.sendMessage('Welcome to Angular Sandbox');
+  }
 
   ngOnInit(): void {
     this._activatedSub = this.userService.activatedEmitter.subscribe((didActivate: boolean) => {

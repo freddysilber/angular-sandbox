@@ -19,7 +19,7 @@ import { ObservablePracticeComponent } from './components/observable-practice/ob
 import { NavigationComponent } from './components/navigation/navigation.component'
 import { ScssExploreComponent } from './components/scss-explore/scss-explore.component'
 // Services
-// import { TOAST_TOKEN } from './services/toast.service';
+import { MESSAGING_TOKEN, MessagingService } from './services/messaging.service'
 // Pipes
 import { ShortenPipe } from './pipes/shorten.pipe'
 import { FilterPipe } from './pipes/filter.pipe'
@@ -35,8 +35,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { NglModule } from 'ng-lightning'
 
-// declare const toasty: any
-
+// declare const messaging: Message
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,10 +69,12 @@ import { NglModule } from 'ng-lightning'
     NglModule
   ],
   providers: [
-    // {
-    //   provide: TOAST_TOKEN,
-    //   useValue: toasty
-    // }
+    {
+      provide: MESSAGING_TOKEN,
+      useValue: new MessagingService
+      // useValue: 'Hello World - Messaging Token value'
+      // useValue: messaging
+    }
   ],
   bootstrap: [AppComponent]
 })
