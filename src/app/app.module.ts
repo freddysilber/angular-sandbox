@@ -18,6 +18,8 @@ import { AnimationsPracticeComponent } from './components/animations-practice/an
 import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component';
 import { NavigationComponent } from './components/navigation/navigation.component'
 import { ScssExploreComponent } from './components/scss-explore/scss-explore.component'
+// Services
+// import { TOAST_TOKEN } from './services/toast.service';
 // Pipes
 import { ShortenPipe } from './pipes/shorten.pipe'
 import { FilterPipe } from './pipes/filter.pipe'
@@ -32,6 +34,8 @@ import {
 import { AppRoutingModule } from './app-routing.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { NglModule } from 'ng-lightning'
+
+// declare const toasty: any
 
 @NgModule({
   declarations: [
@@ -65,7 +69,12 @@ import { NglModule } from 'ng-lightning'
     ReactiveFormsModule,
     NglModule
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: TOAST_TOKEN,
+    //   useValue: toasty
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
