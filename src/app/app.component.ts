@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, EventEmitter, ViewChild, ComponentFactoryResolver, Inject } from '@angular/core'
-import { Observable, Subscription } from 'rxjs'
+import { Subscription } from 'rxjs'
 
 import { SuccessAlertComponent } from './components/alerts/success-alert/success-alert.component'
 import { WarningAlertComponent } from './components/alerts/warning-alert/warning-alert.component'
@@ -7,7 +7,6 @@ import { WarningAlertComponent } from './components/alerts/warning-alert/warning
 import { MESSAGING_TOKEN, MessagingService } from './services/messaging.service'
 import { LoggingService } from './services/loggingService.service'
 import { UserService } from './services/user.service'
-import { CatFactsService } from './services/cat-facts.service'
 
 import { ComponentPlaceholderDirective } from './directives'
 
