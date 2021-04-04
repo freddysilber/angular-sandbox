@@ -40,14 +40,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { NglModule } from 'ng-lightning'
 
 const COMPONENTS = [
+	AppComponent,
 	CatFactsComponent,
-	ScssExploreComponent
+	ScssExploreComponent,
+	ServerComponent
 ]
 
 @NgModule({
 	declarations: [
-		AppComponent,
-		ServerComponent,
 		ServersComponent,
 		WarningAlertComponent,
 		SuccessAlertComponent,

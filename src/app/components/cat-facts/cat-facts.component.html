@@ -1,3 +1,11 @@
-<p *ngFor="let catFact of catFacts | async; index as i">
-	Fact #{{ i }}: {{ catFact.text }}
-</p>
+<ng-container *ngIf="catFacts; else noFacts">
+	<ol>
+		<li *ngFor="let catFact of catFacts | async; index as i">
+			Fact #{{ i + 1 }}: <b>{{ catFact.text }}</b>
+		</li>
+	</ol>
+</ng-container>
+
+<ng-template #noFacts>
+	<h1>There are no facts! make sure the api is working</h1>
+</ng-template>

@@ -18,9 +18,11 @@
 >
 	Create Dynamic Alert Component
 </button>
+
 <ng-template componentPlaceholder></ng-template>
 
 <app-user></app-user>
+
 <p *ngIf="userActivated">Activated!</p>
 
 <app-cockpit (worldCreated)="onWorldCreated($event)"></app-cockpit>
@@ -31,7 +33,9 @@
 </app-warning-alert>
 
 <app-success-alert></app-success-alert>
+
 <br>
+
 <app-success-alert>
 	<p>projected text</p>
 </app-success-alert>
@@ -43,21 +47,25 @@
 				nglButton
 				variant="brand"
 				(click)="onToggleDisplay()"
-			>Display Details</button>
+			>
+				Display Details
+			</button>
 			<p *ngIf="showSecret">Secret Password = booboo chicken</p>
 			<p *appUnless="!showSecret">Secret Password = booboo chicken</p>
 			<div
 				*ngFor="let logItem of log; let i = index"
 				[ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
 				[ngClass]="{'white-text' : i >= 4}"
-				>{{logItem}}</div>
+			>
+			{{ logItem }}
+			</div>
 			<label>Username</label>
 			<input
 				type="text"
 				class="form-control"
 				[(ngModel)]="username"
 			>
-			<p>{{username}}</p>
+			<p>{{ username }}</p>
 			<button
 				class="slds-button slds-button_outline-brand"
 				[disabled]="username === ''"
@@ -69,7 +77,7 @@
 				type="text"
 				[(ngModel)]="name"
 			>
-			<p>{{name | uppercase}}</p>
+			<p>{{ name | uppercase }}</p>
 		</div>
 	</div>
 </div>
