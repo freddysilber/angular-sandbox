@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpClientModule } from '@angular/common/http';
 // Components
 import { AppComponent } from './app.component'
 import { ServerComponent } from './components/server/server.component'
@@ -17,7 +18,10 @@ import { ExploringPipesComponent } from './components/exploring-pipes/exploring-
 import { AnimationsPracticeComponent } from './components/animations-practice/animations-practice.component'
 import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component';
 import { NavigationComponent } from './components/navigation/navigation.component'
-import { ScssExploreComponent } from './components/scss-explore/scss-explore.component'
+import {
+	CatFactsComponent,
+	ScssExploreComponent
+} from './components';
 // Services
 import { MESSAGING_TOKEN, MessagingService } from './services/messaging.service'
 // Pipes
@@ -25,57 +29,62 @@ import { ShortenPipe } from './pipes/shorten.pipe'
 import { FilterPipe } from './pipes/filter.pipe'
 // Directives
 import {
-  BasicHighlightDirective,
-  BetterHighlightDirective,
-  UnlessDirective,
-  ComponentPlaceholderDirective
+	BasicHighlightDirective,
+	BetterHighlightDirective,
+	UnlessDirective,
+	ComponentPlaceholderDirective
 } from './directives'
 // Modules
 import { AppRoutingModule } from './app-routing.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { NglModule } from 'ng-lightning'
 
-// declare const messaging: Message
+const COMPONENTS = [
+	CatFactsComponent,
+	ScssExploreComponent
+]
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    ServerComponent,
-    ServersComponent,
-    WarningAlertComponent,
-    SuccessAlertComponent,
-    CockpitComponent,
-    BasicHighlightDirective,
-    BetterHighlightDirective,
-    UnlessDirective,
-    ComponentPlaceholderDirective,
-    DashboardComponent,
-    UserComponent,
-    ReactiveFormComponent,
-    ExploringPipesComponent,
-    AnimationsPracticeComponent,
-    ScssExploreComponent,
-    ShortenPipe,
-    FilterPipe,
-    ObservablePracticeComponent,
-    NavigationComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    AppRoutingModule,
-    NgbModule,
-    ReactiveFormsModule,
-    NglModule
-  ],
-  providers: [
-    {
-      provide: MESSAGING_TOKEN,
-      useClass: MessagingService
-      // useValue: 'Hello World - Messaging Token value'
-      // useValue: messaging
-    }
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		ServerComponent,
+		ServersComponent,
+		WarningAlertComponent,
+		SuccessAlertComponent,
+		CockpitComponent,
+		BasicHighlightDirective,
+		BetterHighlightDirective,
+		UnlessDirective,
+		ComponentPlaceholderDirective,
+		DashboardComponent,
+		UserComponent,
+		ReactiveFormComponent,
+		ExploringPipesComponent,
+		AnimationsPracticeComponent,
+		COMPONENTS,
+		ShortenPipe,
+		FilterPipe,
+		ObservablePracticeComponent,
+		NavigationComponent
+	],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		FormsModule,
+		AppRoutingModule,
+		HttpClientModule,
+		NgbModule,
+		ReactiveFormsModule,
+		NglModule
+	],
+	providers: [
+		{
+			provide: MESSAGING_TOKEN,
+			useClass: MessagingService
+			// useValue: 'Hello World - Messaging Token value'
+			// useValue: messaging
+		}
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

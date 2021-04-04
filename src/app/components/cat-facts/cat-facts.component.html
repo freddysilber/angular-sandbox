@@ -1,0 +1,3 @@
+<p *ngFor="let catFact of catFacts | async; index as i">
+	Fact #{{ i }}: {{ catFact.text }}
+</p>

@@ -1,84 +1,94 @@
 import { Component, OnInit, OnDestroy, EventEmitter, ViewChild, ComponentFactoryResolver, Inject } from '@angular/core'
-import { Subscription } from 'rxjs'
+import { Observable, Subscription } from 'rxjs'
 
-import { LoggingService } from './services/loggingService.service'
-import { UserService } from './services/user.service'
-import { ComponentPlaceholderDirective } from './directives'
 import { SuccessAlertComponent } from './components/alerts/success-alert/success-alert.component'
 import { WarningAlertComponent } from './components/alerts/warning-alert/warning-alert.component'
-import { MESSAGING_TOKEN, Message, MessagingService } from './services/messaging.service'
+
+import { MESSAGING_TOKEN, MessagingService } from './services/messaging.service'
+import { LoggingService } from './services/loggingService.service'
+import { UserService } from './services/user.service'
+import { CatFactsService } from './services/cat-facts.service'
+
+import { ComponentPlaceholderDirective } from './directives'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [LoggingService] // This could be injected in app.module.ts (this would be the very highest in the chain were we could inject this)
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss'],
+	providers: [LoggingService] // This could be injected in app.module.ts (this would be the very highest in the chain were we could inject this)
 })
 export class AppComponent implements OnInit, OnDestroy {
-  @ViewChild(ComponentPlaceholderDirective, { static: true }) alertHost: ComponentPlaceholderDirective
+	@ViewChild(ComponentPlaceholderDirective, { static: true }) alertHost: ComponentPlaceholderDirective
 
-  public name: string = 'Freddy'
-  public username: string = '' // Test username
-  public showSecret: boolean = false // Toggle show 'super secret' message
-  public log: Date[] = [] // Collection of timestamps
-  public switchValue: number = 0 // look at template for ngSwitch useage. This is the value to switch on in the template
-  public userActivated: boolean = false // This value comes from a 'Subject' in the user.service.ts
-  public welcomeMessage: string
+	public name: string = 'Freddy'
+	public username: string = '' // Test username
+	public showSecret: boolean = false // Toggle show 'super secret' message
+	public log: Date[] = [] // Collection of timestamps
+	public switchValue: number = 0 // look at template for ngSwitch useage. This is the value to switch on in the template
+	public userActivated: boolean = false // This value comes from a 'Subject' in the user.service.ts
+	public welcomeMessage: string
+	public catFacts: Observable<any[]> = this._catFactsService.getCatFacts()
 
-  private _activatedSub: Subscription
+	private _subscriptions: Subscription[] = []
 
-  constructor(
-    @Inject(MESSAGING_TOKEN) private messagingToken: MessagingService,
-    private loggingService: LoggingService,
-    private userService: UserService,
-    private componentFactoryResolver: ComponentFactoryResolver
-  ) {
-    console.log(this.messagingToken)
-    console.log(this.messagingToken.messageName)
-    // console.log(this.messagingToken.sendMessage('You have a new message!'))
-    this.welcomeMessage = this.messagingToken.sendMessage('Welcome to Angular Sandbox');
-  }
+	constructor(
+		@Inject(MESSAGING_TOKEN) private messagingToken: MessagingService,
+		private loggingService: LoggingService,
+		private userService: UserService,
+		private componentFactoryResolver: ComponentFactoryResolver,
+		private _catFactsService: CatFactsService
+	) {
+		console.log(this.messagingToken)
+		console.log(this.messagingToken.messageName)
+		// console.log(this.messagingToken.sendMessage('You have a new message!'))
+		this.welcomeMessage = this.messagingToken.sendMessage('Welcome to Angular Sandbox');
+	}
 
-  ngOnInit(): void {
-    this._activatedSub = this.userService.activatedEmitter.subscribe((didActivate: boolean) => {
-      this.userActivated = didActivate
-      // this.userActivated = this.userActivated ? !didActivate : didActivate
-    })
-  }
+	ngOnInit(): void {
+		this._subscriptions.push(
+			this.userService.activatedEmitter.subscribe((didActivate: boolean) => {
+				this.userActivated = didActivate
+				// this.userActivated = this.userActivated ? !didActivate : didActivate
+			}),
+			// this._catFactsService.getCatFacts().subscribe((fact) => {
+			// 	console.log(fact)
+			// })
+		)
+	}
 
-  ngOnDestroy(): void {
-    this._activatedSub.unsubscribe()
-  }
+	ngOnDestroy(): void {
+		this._subscriptions.forEach((sub: Subscription) => sub.unsubscribe())
+	}
 
-  onToggleDisplay(): void {
-    this.showSecret = !this.showSecret
-    this.log.push(new Date())
-  }
+	onToggleDisplay(): void {
+		this.showSecret = !this.showSecret
+		this.log.push(new Date())
+	}
 
-  onWorldCreated(event: EventEmitter<any>): void {
-    console.log('You just opened up a whole other world!', event)
-  }
+	onWorldCreated(event: EventEmitter<any>): void {
+		console.log('You just opened up a whole other world!', event)
+	}
 
-  runSwitch(): void {
-    this.switchValue++
-    this.loggingService.logAString(`Switch is running! ${this.switchValue}`)
-    const sum: number = this.loggingService.getSum(2, 9)
-    const summ: number = this.loggingService.getSum(sum, 2)
-    const summm: number = this.loggingService.getSum(this.loggingService.getSum(1, 2), this.loggingService.getSum(3, 4))
-    console.log(sum, summ, summm)
-  }
+	runSwitch(): void {
+		this.switchValue++
+		this.loggingService.logAString(`Switch is running! ${this.switchValue}`)
+		const sum: number = this.loggingService.getSum(2, 9)
+		const summ: number = this.loggingService.getSum(sum, 2)
+		const summm: number = this.loggingService.getSum(this.loggingService.getSum(1, 2), this.loggingService.getSum(3, 4))
+		console.log(sum, summ, summm)
+	}
 
-  public createComponent() {
-    const successComponent = this.componentFactoryResolver.resolveComponentFactory(SuccessAlertComponent)
-    console.log(successComponent)
-    const warningComponent = this.componentFactoryResolver.resolveComponentFactory(WarningAlertComponent)
+	public createComponent() {
+		const successComponent = this.componentFactoryResolver.resolveComponentFactory(SuccessAlertComponent)
+		console.log(successComponent)
+		const warningComponent = this.componentFactoryResolver.resolveComponentFactory(WarningAlertComponent)
 
-    const hostViewContainerRef = this.alertHost.viewContainerRef
-    hostViewContainerRef.clear()
+		const hostViewContainerRef = this.alertHost.viewContainerRef
+		hostViewContainerRef.clear()
 
-    const successComponentRef = hostViewContainerRef.createComponent(successComponent)
-    console.log(successComponentRef)
-    const warningComponentRef = hostViewContainerRef.createComponent(warningComponent)
-    console.log(warningComponentRef)
-  }
+		const successComponentRef = hostViewContainerRef.createComponent(successComponent)
+		console.log(successComponentRef)
+		const warningComponentRef = hostViewContainerRef.createComponent(warningComponent)
+		console.log(warningComponentRef)
+	}
 }
