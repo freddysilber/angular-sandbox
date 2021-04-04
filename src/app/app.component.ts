@@ -27,7 +27,6 @@ export class AppComponent implements OnInit, OnDestroy {
 	public switchValue: number = 0 // look at template for ngSwitch useage. This is the value to switch on in the template
 	public userActivated: boolean = false // This value comes from a 'Subject' in the user.service.ts
 	public welcomeMessage: string
-	public catFacts: Observable<any[]> = this._catFactsService.getCatFacts()
 
 	private _subscriptions: Subscription[] = []
 
@@ -35,8 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		@Inject(MESSAGING_TOKEN) private messagingToken: MessagingService,
 		private loggingService: LoggingService,
 		private userService: UserService,
-		private componentFactoryResolver: ComponentFactoryResolver,
-		private _catFactsService: CatFactsService
+		private componentFactoryResolver: ComponentFactoryResolver
 	) {
 		console.log(this.messagingToken)
 		console.log(this.messagingToken.messageName)
@@ -48,11 +46,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		this._subscriptions.push(
 			this.userService.activatedEmitter.subscribe((didActivate: boolean) => {
 				this.userActivated = didActivate
-				// this.userActivated = this.userActivated ? !didActivate : didActivate
-			}),
-			// this._catFactsService.getCatFacts().subscribe((fact) => {
-			// 	console.log(fact)
-			// })
+			})
 		)
 	}
 
