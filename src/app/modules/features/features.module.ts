@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { FeaturesRoutingModule } from './routing.module'
+import { FeaturesRoutingModule } from './routing.module';
 
 import {
   FeatureDashboardComponent,
   FeatureWelcomeComponent,
   ObservablesComponent
-} from './components'
+} from './components';
 
 
 @NgModule({

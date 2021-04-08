@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core'
-import { Observable, Subscriber, Subscription, from, Subject, BehaviorSubject } from 'rxjs'
-import { map, filter } from 'rxjs/operators'
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, from, Observable, Subscriber, Subscription } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { ColdObservables } from './cold-observables.service';
+import { HotObservables } from './hot-observables.service';
 
 type Stream =
 	| string
 	| number
-	| object
+	| object;
 
-const RETIREMENT = 65
+const RETIREMENT = 65;
 
 @Injectable({
 	providedIn: 'root'
@@ -20,14 +22,19 @@ export class ObservablesService {
 		'Freddy',
 		'Silber',
 		21
-	]
+	];
+
+	constructor(
+		private _coldObservablesService: ColdObservables,
+		private _hotObservablesService: HotObservables,
+	) { }
 
 	private _getYearsToRetirement(age: number): number {
-		return RETIREMENT - age
+		return RETIREMENT - age;
 	}
 
 	exploreObservables(): void {
-		let greeting: string = 'Hi, Im '
+		let greeting: string = 'Hi, Im ';
 		const myObservable: Observable<Stream> = from(this._myStream).pipe(
 			map((value: Stream) => {
 				if (typeof value === 'number') {
@@ -35,9 +42,9 @@ export class ObservablesService {
 				}
 				return value
 			})
-		)
-		myObservable.subscribe((value: Stream) => greeting += value + ' ').unsubscribe()
-		console.log(greeting)
+		);
+		myObservable.subscribe((value: Stream) => greeting += value + ' ').unsubscribe();
+		console.log(greeting);
 	}
 
 	startCustomObservable(): void {
