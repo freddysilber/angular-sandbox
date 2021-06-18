@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { RiskMatrixComponent } from './components'
+import { RiskMatrixComponent } from './components';
 
 const ROUTES: Routes = [
 	{
